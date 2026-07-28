@@ -15,10 +15,11 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
 
 CSS = """
   :root{
-    --bg:#14130f; --paper:#e7e2d8; --ironwood:#221b13;
-    --brass:#9c7a3c; --brass-soft:#c9ad74; --taupe:#8c8171;
-    --paper-ink:#1c1a15; --dark-ink:#efeae0;
-    --line-dark: rgba(239,234,224,0.14); --line-paper: rgba(28,26,21,0.14);
+    --bg:#1c1c1c; --paper:#f2efea; --ironwood:#141414;
+    --brass:#b67e57; --brass-soft:#c99671; --taupe:#8c8171;
+    --bordo:#5a2e35;
+    --paper-ink:#1c1c1c; --dark-ink:#f2efea;
+    --line-dark: rgba(242,239,234,0.14); --line-paper: rgba(28,28,28,0.14);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
@@ -36,9 +37,9 @@ CSS = """
   header .wrap{ display:flex; align-items:center; justify-content:space-between; }
   .logo{ font-family:'Fraunces',serif; font-size:16px; letter-spacing:0.14em; text-transform:uppercase; color:var(--dark-ink); display:inline-flex; align-items:center; }
   .logo span{ color:var(--brass-soft); }
-  .logo-img{ height:38px; width:auto; display:block; }
-  header.solid .logo-img{ height:32px; transition:height .3s ease; }
-  footer .logo-img{ height:30px; opacity:0.9; }
+  .logo-img{ height:52px; width:auto; display:block; }
+  header.solid .logo-img{ height:42px; transition:height .3s ease; }
+  footer .logo-img{ height:40px; opacity:0.9; }
   nav.primary-nav{ display:flex; align-items:center; gap:34px; }
   nav.primary-nav a{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--dark-ink); opacity:0.78; transition:opacity .25s,color .25s; }
   nav.primary-nav a:hover{ opacity:1; color:var(--brass-soft); }
@@ -70,10 +71,18 @@ CSS = """
   .intro-body p + p{ margin-top:18px; }
   .intro-signature{ margin-top:34px; font-family:'Fraunces',serif; font-style:italic; font-size:17px; }
   .intro-signature span{ display:block; font-family:'IBM Plex Mono',monospace; font-style:normal; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--brass); margin-top:6px; }
-  .croqui-frame{ border:1px solid var(--line-paper); padding:26px; border-radius:2px; background:linear-gradient(160deg, rgba(156,122,60,0.05), transparent 70%); }
-  .draw path,.draw line,.draw rect,.draw polyline{ fill:none; stroke:var(--brass); stroke-width:1.1; stroke-linecap:round; stroke-linejoin:round; }
-  .draw .fillfaint{ fill:var(--brass); fill-opacity:0.06; stroke:none; }
-  .croqui-cap{ margin-top:14px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--taupe); }
+  .intro-photo{ border-radius:2px; overflow:hidden; aspect-ratio:4/5; }
+  .intro-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+  /* sócios (Estúdio) */
+  .partner-feature{ display:grid; grid-template-columns:0.85fr 1.15fr; gap:56px; align-items:center; padding:70px 0 40px; }
+  .partner-portrait{ aspect-ratio:4/5; overflow:hidden; border-radius:2px; }
+  .partner-portrait img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .partner-bio h2{ font-size:clamp(24px,2.8vw,34px); color:var(--dark-ink); max-width:16ch; }
+  .partner-text p{ font-size:16px; line-height:1.85; color:#d8d2c6; max-width:56ch; }
+  .partner-text p + p{ margin-top:16px; }
+  .partner-secondary{ display:grid; grid-template-columns:0.4fr 1.6fr; gap:44px; align-items:center; padding:30px 0 70px; border-top:1px solid var(--line-dark); margin-top:20px; }
+  .partner-portrait.sm{ aspect-ratio:4/5; max-width:280px; }
 
   /* portfolio */
   .portfolio{ background:var(--bg); padding:120px 0; }
@@ -179,7 +188,6 @@ CSS = """
   @media (max-width:860px){
     nav.primary-nav a:not(.btn-whats){ display:none; }
     .intro .wrap{ grid-template-columns:1fr; gap:40px; }
-    .croqui-frame{ order:-1; }
     .grid2,.grid3{ grid-template-columns:1fr; }
     .band{ height:50vh; }
     .service-row{ grid-template-columns:1fr; gap:10px; }
@@ -189,6 +197,9 @@ CSS = """
     .thumbs.n3{ grid-template-columns:repeat(2,1fr); }
     .related-card{ grid-template-columns:1fr; }
     .studio-grid{ grid-template-columns:1fr; gap:32px; }
+    .partner-feature{ grid-template-columns:1fr; gap:28px; padding:40px 0 30px; }
+    .partner-secondary{ grid-template-columns:1fr; gap:24px; }
+    .partner-portrait.sm{ max-width:220px; }
   }
   @media (prefers-reduced-motion: reduce){ *{ animation:none !important; transition:none !important; scroll-behavior:auto !important; } }
 """
@@ -356,11 +367,10 @@ home_body = f"""
         <p>A Rosa Locks projeta casas e interiores em Criciúma e no litoral de Santa Catarina. Cada projeto é modelado em BIM desde o primeiro esboço, o que compatibiliza estrutura, elétrica e hidráulica antes da obra começar — e garante que o que foi desenhado seja exatamente o que se constrói.</p>
         <p>Não trabalhamos com plantas padronizadas. Cada terreno, orientação solar e forma de morar da família definem um projeto que não se repete em nenhum outro endereço.</p>
       </div>
-      <div class="intro-signature">Isadora Rosa Luiz<span>Arquiteta responsável · acompanha pessoalmente cada projeto</span></div>
+      <div class="intro-signature">Isadora Rosa<span>Diretora de Projetos · acompanha cada projeto de perto</span></div>
     </div>
-    <div class="croqui-frame">
-      {CROQUI_SVG}
-      <div class="croqui-cap">— do esboço ao BIM, cada casa se desenha a partir do lugar</div>
+    <div class="intro-photo">
+      <img src="assets/img/isadora-atelier.jpg" alt="Isadora Rosa selecionando materiais no atelier Rosa Locks" loading="lazy">
     </div>
   </div>
 </section>
@@ -499,22 +509,43 @@ estudio_body = f"""
   <div class="wrap">
     <p class="eyebrow">Quem assina</p>
     <h1>O Estúdio</h1>
-    <p>Um escritório de arquitetura e engenharia focado em residências de alto padrão em Criciúma e no litoral catarinense.</p>
+    <p>Um escritório de arquitetura e engenharia focado em residências e projetos comerciais de alto padrão em Criciúma e no litoral catarinense. Dois profissionais, uma assinatura: projeto autoral e responsabilidade técnica na mesma casa.</p>
   </div>
 </section>
-<div class="wrap studio-lead">
-  <div class="studio-grid">
-    <div class="studio-portrait"><img src="assets/img/intro.jpg" alt="Projeto Rosa Locks"></div>
-    <div class="studio-bio reveal">
-      <p class="eyebrow" style="margin-bottom:18px;">Isadora Rosa Luiz</p>
-      <p>[EDITAR] Bio da Isadora: formação, ano de formatura e instituição, e a abordagem que ela quer transmitir. A Rosa Locks escreve o texto final a partir do que ela quiser destacar.</p>
-      <p>[EDITAR] Prêmios, publicações ou reconhecimentos, se houver. Se não houver, este parágrafo pode falar da filosofia de projeto — atenção ao terreno, ao modo de morar e ao detalhe construtivo.</p>
-      <p>Cada projeto do estúdio é acompanhado pessoalmente pela arquiteta, do primeiro esboço à entrega — sem terceirização da criação.</p>
-      <div class="intro-signature" style="color:var(--brass-soft);margin-top:28px;">Isadora Rosa Luiz<span>Arquiteta responsável</span></div>
+
+<div class="wrap">
+  <div class="partner-feature">
+    <div class="partner-portrait">
+      <img src="assets/img/isadora.jpg" alt="Isadora Rosa, Diretora de Projetos da Rosa Locks" loading="lazy">
+    </div>
+    <div class="partner-bio reveal">
+      <p class="eyebrow" style="margin-bottom:16px;">Isadora Rosa · Diretora de Projetos</p>
+      <h2>A criação nasce, e permanece, dentro do estúdio.</h2>
+      <div class="partner-text" style="margin-top:22px;">
+        <p>[EDITAR] Bio da Isadora: formação, ano de formatura e instituição, e a abordagem que ela quer transmitir. Escrevo o texto final a partir do que ela quiser destacar.</p>
+        <p>[EDITAR] Prêmios, publicações ou reconhecimentos, se houver. Se não houver, este parágrafo pode falar da filosofia de projeto: atenção ao terreno, ao modo de morar e ao detalhe.</p>
+        <p>À frente da criação de cada projeto, Isadora conduz o desenho do primeiro esboço ao executivo, sem terceirizar o que dá identidade a cada casa.</p>
+      </div>
     </div>
   </div>
 </div>
-<section class="intro" style="margin-top:80px;">
+
+<div class="wrap">
+  <div class="partner-secondary reveal">
+    <div class="partner-portrait sm">
+      <img src="assets/img/jose.jpg" alt="José Umberto Taques Locks, Engenheiro Civil da Rosa Locks" loading="lazy">
+    </div>
+    <div class="partner-bio">
+      <p class="eyebrow" style="margin-bottom:16px;">José Umberto Taques Locks · Engenheiro Civil &middot; Direção Técnica</p>
+      <div class="partner-text">
+        <p>[EDITAR] Bio do José: formação em engenharia, instituição e experiência. Escrevo o texto final a partir do que ele quiser destacar.</p>
+        <p>Responsável pela viabilidade, pela compatibilização técnica e pela gestão que faz o projeto sair do papel sem surpresas: o desenho da Isadora encontra, aqui, a engenharia que o sustenta.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="intro" style="margin-top:40px;">
   <div class="wrap">
     <div>
       <p class="eyebrow">Método</p>
@@ -524,9 +555,8 @@ estudio_body = f"""
         <p>O resultado é uma obra mais previsível — menos surpresas no canteiro, e uma casa que corresponde exatamente ao que foi projetado.</p>
       </div>
     </div>
-    <div class="croqui-frame">
-      {CROQUI_SVG}
-      <div class="croqui-cap">— cada casa se desenha a partir do lugar</div>
+    <div class="intro-photo">
+      <img src="assets/img/isadora-atelier.jpg" alt="Seleção de materiais no atelier Rosa Locks" loading="lazy">
     </div>
   </div>
 </section>
