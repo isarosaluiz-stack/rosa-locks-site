@@ -11,7 +11,7 @@ INSTA = "https://instagram.com/rosalocks.arq"  # conferir handle
 
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
 '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
-'<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">')
+'<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300,0,0;0,9..144,400,0,0;0,9..144,500,0,0;1,9..144,400,0,0;1,9..144,500,0,0&family=Work+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">')
 
 CSS = """
   :root{
@@ -27,7 +27,7 @@ CSS = """
   a{color:inherit; text-decoration:none;}
   img{max-width:100%; display:block;}
   .eyebrow{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--brass); }
-  h1,h2,h3{ font-family:'Fraunces',serif; font-weight:400; }
+  h1,h2,h3{ font-family:'Fraunces',serif; font-weight:400; font-variation-settings:'SOFT' 0, 'WONK' 0, 'opsz' 144; }
   .wrap{ max-width:1180px; margin:0 auto; padding:0 32px; }
 
   /* header */
@@ -376,7 +376,7 @@ home_body = f"""
       <div class="intro-signature">Isadora Rosa<span>Diretora de Projetos · acompanha cada projeto de perto</span></div>
     </div>
     <div class="intro-photo">
-      <img src="assets/img/isadora-atelier.jpg" alt="Isadora Rosa selecionando materiais no atelier Rosa Locks" loading="lazy">
+      <img src="assets/img/isadora-perfil.jpg" alt="Isadora Rosa, Diretora de Projetos da Rosa Locks" loading="lazy">
     </div>
   </div>
 </section>
