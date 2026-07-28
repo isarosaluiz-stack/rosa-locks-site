@@ -34,8 +34,11 @@ CSS = """
   header.solid{ background:rgba(20,19,15,0.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--line-dark); padding:16px 0; }
   header.static{ position:sticky; background:rgba(20,19,15,0.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--line-dark); }
   header .wrap{ display:flex; align-items:center; justify-content:space-between; }
-  .logo{ font-family:'Fraunces',serif; font-size:16px; letter-spacing:0.14em; text-transform:uppercase; color:var(--dark-ink); }
+  .logo{ font-family:'Fraunces',serif; font-size:16px; letter-spacing:0.14em; text-transform:uppercase; color:var(--dark-ink); display:inline-flex; align-items:center; }
   .logo span{ color:var(--brass-soft); }
+  .logo-img{ height:38px; width:auto; display:block; }
+  header.solid .logo-img{ height:32px; transition:height .3s ease; }
+  footer .logo-img{ height:30px; opacity:0.9; }
   nav.primary-nav{ display:flex; align-items:center; gap:34px; }
   nav.primary-nav a{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--dark-ink); opacity:0.78; transition:opacity .25s,color .25s; }
   nav.primary-nav a:hover{ opacity:1; color:var(--brass-soft); }
@@ -95,6 +98,7 @@ CSS = """
   .band::after{ content:""; position:absolute; inset:0; background:rgba(15,14,10,0.5); z-index:1; }
   .band .band-text{ position:relative; z-index:2; text-align:center; max-width:22ch; }
   .band .band-text h2{ font-size:clamp(26px,3.4vw,40px); font-style:italic; color:var(--dark-ink); line-height:1.25; }
+  .band .band-text h2 em{ color:var(--brass-soft); font-style:italic; }
 
   /* services */
   .services{ background:var(--paper); color:var(--paper-ink); padding:120px 0; }
@@ -213,11 +217,11 @@ def header(current, static=False):
         return f'<a href="{href}"{c}>{name}</a>'
     return f"""<header class="{cls}">
   <div class="wrap">
-    <a href="index.html" class="logo">ROSA LOCKS <span>ARQUITETURA</span></a>
+    <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="Rosa Locks Arquitetura" class="logo-img"></a>
     <nav class="primary-nav">
       {nav('Projetos','projetos.html')}
       {nav('Estúdio','estudio.html')}
-      {nav('Como trabalhamos','index.html#como-trabalhamos')}
+      {nav('Serviços','index.html#servicos')}
       <a class="btn-whats" href="{WA}" target="_blank" rel="noopener">Falar no WhatsApp</a>
     </nav>
   </div>
@@ -225,7 +229,7 @@ def header(current, static=False):
 
 FOOTER = f"""<footer>
   <div class="wrap">
-    <a href="index.html" class="logo">ROSA LOCKS <span>ARQUITETURA</span></a>
+    <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="Rosa Locks Arquitetura" class="logo-img"></a>
     <div class="foot-links">
       <span>Criciúma · SC</span>
       <a href="{INSTA}" target="_blank" rel="noopener">Instagram</a>
@@ -333,7 +337,7 @@ home_body = f"""
     <div class="wrap">
       <p class="eyebrow">Rosa Locks Arquitetura · Criciúma &amp; Litoral de SC</p>
       <h1>Cada projeto nasce do <em>terreno</em>, não do catálogo.</h1>
-      <p class="lede">Arquitetura residencial e de interiores assinada pessoalmente pela arquiteta Isadora Rosa Luiz, do primeiro esboço à entrega das chaves.</p>
+      <p class="lede">Arquitetura residencial e de interiores assinada pela arquiteta Isadora Rosa Luiz, do primeiro esboço ao projeto executivo.</p>
       <div class="hero-actions">
         <a class="btn-whats" href="{WA}" target="_blank" rel="noopener">Iniciar uma conversa</a>
         <span class="hint">resposta em minutos, direto no WhatsApp</span>
@@ -349,7 +353,7 @@ home_body = f"""
       <p class="eyebrow">O Estúdio</p>
       <h2>Projeto pensado do zero, executado sem imprevistos.</h2>
       <div class="intro-body" style="margin-top:22px;">
-        <p>A Rosa Locks projeta casas e interiores em Criciúma e no litoral de Santa Catarina, incluindo Itapema. Cada projeto é modelado em BIM desde o primeiro esboço, o que compatibiliza estrutura, elétrica e hidráulica antes da obra começar — e garante que o que foi desenhado seja exatamente o que se constrói.</p>
+        <p>A Rosa Locks projeta casas e interiores em Criciúma e no litoral de Santa Catarina. Cada projeto é modelado em BIM desde o primeiro esboço, o que compatibiliza estrutura, elétrica e hidráulica antes da obra começar — e garante que o que foi desenhado seja exatamente o que se constrói.</p>
         <p>Não trabalhamos com plantas padronizadas. Cada terreno, orientação solar e forma de morar da família definem um projeto que não se repete em nenhum outro endereço.</p>
       </div>
       <div class="intro-signature">Isadora Rosa Luiz<span>Arquiteta responsável · acompanha pessoalmente cada projeto</span></div>
@@ -376,22 +380,22 @@ home_body = f"""
 
 <section class="band">
   <img src="assets/img/atmo-01.jpg" alt="Arquitetura residencial Rosa Locks">
-  <div class="band-text"><h2>A arquitetura certa desaparece no modo como a casa é vivida.</h2></div>
+  <div class="band-text"><h2>A boa arquitetura se dissolve no conforto do <em>dia a dia</em>.</h2></div>
 </section>
 
-<section class="services" id="como-trabalhamos">
+<section class="services" id="servicos">
   <div class="wrap">
-    <p class="eyebrow">Como trabalhamos</p>
+    <p class="eyebrow">Serviços</p>
     <div class="service-row"><h3>Residencial</h3><p>Projeto completo de arquitetura, do estudo de viabilidade no terreno às visitas técnicas em pontos-chave da obra.</p></div>
     <div class="service-row"><h3>Interiores</h3><p>Ambientes desenhados sob medida para quem já mora ou está prestes a se mudar, com marcenaria e especificação técnica.</p></div>
-    <div class="service-row"><h3>Regularização</h3><p>Documentação e adequação de imóveis já construídos junto aos órgãos competentes, com laudo técnico responsável.</p></div>
+    <div class="service-row"><h3>Comercial</h3><p>Projetos de arquitetura e interiores para empresas, do edifício corporativo ao ambiente de marca, pensados para a experiência de quem trabalha e de quem visita.</p></div>
   </div>
 </section>
 
 <section class="closing">
   <div class="wrap">
     <h2>O primeiro passo é <em>uma conversa</em>.</h2>
-    <a class="btn-whats" href="{WA}" target="_blank" rel="noopener">Falar com a Vanessa no WhatsApp</a>
+    <a class="btn-whats" href="{WA}" target="_blank" rel="noopener">Falar no WhatsApp</a>
   </div>
 </section>
 """
@@ -479,7 +483,7 @@ def detail(p):
 </section>
 <section class="closing wood">
   <div class="wrap">
-    <h2>Gostou do que viu? <em>Fale com a Vanessa</em> e conte o seu projeto.</h2>
+    <h2>Gostou do que viu? <em>Fale conosco</em> e conte o seu projeto.</h2>
     <a class="btn-whats" style="padding:15px 30px;font-size:12px;" href="{WA}" target="_blank" rel="noopener">Iniciar uma conversa</a>
   </div>
 </section>

@@ -27,8 +27,11 @@
   header.solid{ background:rgba(20,19,15,0.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--line-dark); padding:16px 0; }
   header.static{ position:sticky; background:rgba(20,19,15,0.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--line-dark); }
   header .wrap{ display:flex; align-items:center; justify-content:space-between; }
-  .logo{ font-family:'Fraunces',serif; font-size:16px; letter-spacing:0.14em; text-transform:uppercase; color:var(--dark-ink); }
+  .logo{ font-family:'Fraunces',serif; font-size:16px; letter-spacing:0.14em; text-transform:uppercase; color:var(--dark-ink); display:inline-flex; align-items:center; }
   .logo span{ color:var(--brass-soft); }
+  .logo-img{ height:38px; width:auto; display:block; }
+  header.solid .logo-img{ height:32px; transition:height .3s ease; }
+  footer .logo-img{ height:30px; opacity:0.9; }
   nav.primary-nav{ display:flex; align-items:center; gap:34px; }
   nav.primary-nav a{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--dark-ink); opacity:0.78; transition:opacity .25s,color .25s; }
   nav.primary-nav a:hover{ opacity:1; color:var(--brass-soft); }
@@ -88,6 +91,7 @@
   .band::after{ content:""; position:absolute; inset:0; background:rgba(15,14,10,0.5); z-index:1; }
   .band .band-text{ position:relative; z-index:2; text-align:center; max-width:22ch; }
   .band .band-text h2{ font-size:clamp(26px,3.4vw,40px); font-style:italic; color:var(--dark-ink); line-height:1.25; }
+  .band .band-text h2 em{ color:var(--brass-soft); font-style:italic; }
 
   /* services */
   .services{ background:var(--paper); color:var(--paper-ink); padding:120px 0; }
@@ -185,11 +189,11 @@
 <body>
 <header class="static">
   <div class="wrap">
-    <a href="index.html" class="logo">ROSA LOCKS <span>ARQUITETURA</span></a>
+    <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="Rosa Locks Arquitetura" class="logo-img"></a>
     <nav class="primary-nav">
       <a href="projetos.html">Projetos</a>
       <a href="estudio.html" class="current">Estúdio</a>
-      <a href="index.html#como-trabalhamos">Como trabalhamos</a>
+      <a href="index.html#servicos">Serviços</a>
       <a class="btn-whats" href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20falar%20sobre%20um%20projeto." target="_blank" rel="noopener">Falar no WhatsApp</a>
     </nav>
   </div>
@@ -254,7 +258,7 @@
 
 <footer>
   <div class="wrap">
-    <a href="index.html" class="logo">ROSA LOCKS <span>ARQUITETURA</span></a>
+    <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="Rosa Locks Arquitetura" class="logo-img"></a>
     <div class="foot-links">
       <span>Criciúma · SC</span>
       <a href="https://instagram.com/rosalocks.arq" target="_blank" rel="noopener">Instagram</a>
