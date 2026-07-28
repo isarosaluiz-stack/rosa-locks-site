@@ -76,8 +76,8 @@ CSS = """
   .intro-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
 
   /* sócios (Estúdio) */
-  .partner-feature{ display:grid; grid-template-columns:0.85fr 1.15fr; gap:56px; align-items:center; padding:70px 0 40px; }
-  .partner-portrait{ aspect-ratio:4/5; overflow:hidden; border-radius:2px; }
+  .partner-feature{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; padding:70px 0 40px; }
+  .partner-portrait{ aspect-ratio:4/5; overflow:hidden; border-radius:2px; width:100%; max-width:440px; }
   .partner-portrait img{ width:100%; height:100%; object-fit:cover; display:block; }
   .partner-bio h2{ font-size:clamp(24px,2.8vw,34px); color:var(--dark-ink); max-width:16ch; }
   .partner-text p{ font-size:16px; line-height:1.85; color:#d8d2c6; max-width:56ch; }
@@ -86,7 +86,7 @@ CSS = """
   .partner-portrait.sm{ aspect-ratio:4/5; max-width:280px; }
   .partner-feature.reverse{ border-top:1px solid var(--line-dark); padding-top:56px; }
   .partner-feature.reverse .partner-bio{ order:1; }
-  .partner-feature.reverse .partner-portrait{ order:2; }
+  .partner-feature.reverse .partner-portrait{ order:2; margin-left:auto; }
 
   /* portfolio */
   .portfolio{ background:var(--bg); padding:120px 0; }
