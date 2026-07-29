@@ -120,14 +120,15 @@
 
 
   /* servicos - grade de icones */
-  .svc-grid{ display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--line-paper); border-left:1px solid var(--line-paper); }
-  .svc-card{ padding:52px 34px; border-right:1px solid var(--line-paper); border-bottom:1px solid var(--line-paper); text-align:center; transition:background .3s ease; }
+  .svc-grid{ display:grid; grid-template-columns:repeat(6,1fr); border-top:1px solid var(--line-paper); border-left:1px solid var(--line-paper); }
+  .svc-card{ grid-column:span 2; padding:52px 34px; border-right:1px solid var(--line-paper); border-bottom:1px solid var(--line-paper); text-align:center; transition:background .3s ease; }
   .svc-card:hover{ background:rgba(182,126,87,0.05); }
   .svc-card .ico{ width:34px; height:34px; margin:0 auto 22px; display:block; }
   .svc-card .ico path, .svc-card .ico line, .svc-card .ico rect, .svc-card .ico circle, .svc-card .ico polyline{ fill:none; stroke:var(--brass); stroke-width:1.1; stroke-linecap:round; stroke-linejoin:round; }
   .svc-card h3{ font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--paper-ink); }
   .svc-card p{ margin-top:14px; font-size:13.5px; line-height:1.75; color:#4a463d; max-width:32ch; margin-left:auto; margin-right:auto; }
   .svc-wide{ grid-column:span 3; }
+  .svc-half{ grid-column:span 3; }
 
   /* contato */
   .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; padding:70px 0 20px; }
@@ -262,7 +263,7 @@
     .band{ height:50vh; }
     .service-row{ grid-template-columns:1fr; gap:10px; }
     .svc-grid{ grid-template-columns:1fr; }
-    .svc-wide{ grid-column:span 1; }
+    .svc-wide, .svc-half, .svc-card{ grid-column:span 1; }
     .svc-card{ padding:40px 24px; }
     .contact-grid{ grid-template-columns:1fr; gap:36px; padding-top:40px; }
     .contact-photo{ aspect-ratio:4/3; }
@@ -321,25 +322,15 @@
       <h3>Interiores</h3>
       <p>Ambientes desenhados sob medida, com marcenaria, iluminação e especificação técnica.</p>
     </div>
-<div class="svc-card">
+<div class="svc-card svc-half">
       <svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M8 4h12l6 6v22H8z"/><path d="M20 4v6h6"/><path d="M12 18h10M12 23h10M12 28h6"/></svg>
       <h3>Aprovações e regularização</h3>
       <p>Cuidamos da documentação e da adequação do imóvel junto aos órgãos competentes.</p>
     </div>
-<div class="svc-card">
+<div class="svc-card svc-half">
       <svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4v24"/><path d="M6 28h20"/><path d="M16 8L7 28M16 8l9 20"/><circle cx="16" cy="5" r="2"/></svg>
-      <h3>Engenharia</h3>
-      <p>Soluções estruturais e complementares integradas ao projeto, com segurança e eficiência.</p>
-    </div>
-<div class="svc-card">
-      <svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4l11 6v12l-11 6-11-6V10z"/><path d="M16 16l11-6M16 16v12M16 16L5 10"/></svg>
-      <h3>Compatibilização BIM</h3>
-      <p>Arquitetura, estrutura e instalações conferidas antes da obra. Menos imprevistos no canteiro.</p>
-    </div>
-<div class="svc-card svc-wide">
-      <svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><circle cx="14" cy="14" r="8"/><path d="M20 20l8 8"/><path d="M11 14l2.5 2.5L18 12"/></svg>
-      <h3>Acompanhamento de projeto</h3>
-      <p>Visitas técnicas em pontos-chave para garantir que a obra siga fiel ao que foi desenhado.</p>
+      <h3>Projetos complementares</h3>
+      <p>Estrutural, elétrico e hidráulico coordenados pela Rosa Locks, com parceiros de confiança. Um só interlocutor do início ao fim.</p>
     </div>
     </div>
   </div>

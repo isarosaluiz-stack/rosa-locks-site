@@ -120,14 +120,15 @@
 
 
   /* servicos - grade de icones */
-  .svc-grid{ display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--line-paper); border-left:1px solid var(--line-paper); }
-  .svc-card{ padding:52px 34px; border-right:1px solid var(--line-paper); border-bottom:1px solid var(--line-paper); text-align:center; transition:background .3s ease; }
+  .svc-grid{ display:grid; grid-template-columns:repeat(6,1fr); border-top:1px solid var(--line-paper); border-left:1px solid var(--line-paper); }
+  .svc-card{ grid-column:span 2; padding:52px 34px; border-right:1px solid var(--line-paper); border-bottom:1px solid var(--line-paper); text-align:center; transition:background .3s ease; }
   .svc-card:hover{ background:rgba(182,126,87,0.05); }
   .svc-card .ico{ width:34px; height:34px; margin:0 auto 22px; display:block; }
   .svc-card .ico path, .svc-card .ico line, .svc-card .ico rect, .svc-card .ico circle, .svc-card .ico polyline{ fill:none; stroke:var(--brass); stroke-width:1.1; stroke-linecap:round; stroke-linejoin:round; }
   .svc-card h3{ font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--paper-ink); }
   .svc-card p{ margin-top:14px; font-size:13.5px; line-height:1.75; color:#4a463d; max-width:32ch; margin-left:auto; margin-right:auto; }
   .svc-wide{ grid-column:span 3; }
+  .svc-half{ grid-column:span 3; }
 
   /* contato */
   .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; padding:70px 0 20px; }
@@ -262,7 +263,7 @@
     .band{ height:50vh; }
     .service-row{ grid-template-columns:1fr; gap:10px; }
     .svc-grid{ grid-template-columns:1fr; }
-    .svc-wide{ grid-column:span 1; }
+    .svc-wide, .svc-half, .svc-card{ grid-column:span 1; }
     .svc-card{ padding:40px 24px; }
     .contact-grid{ grid-template-columns:1fr; gap:36px; padding-top:40px; }
     .contact-photo{ aspect-ratio:4/3; }
@@ -328,7 +329,7 @@
 <div class="wrap">
   <div class="partner-feature reverse reveal">
     <div class="partner-bio">
-      <p class="eyebrow" style="margin-bottom:16px;">José Locks · Engenheiro Civil &middot; Direção Técnica</p>
+      <p class="eyebrow" style="margin-bottom:16px;">Engenheiro Civil José Locks · Direção Técnica</p>
       <h2>A engenharia que faz o desenho virar obra.</h2>
       <div class="partner-text" style="margin-top:22px;">
         <p>Engenheiro civil formado pela UNESC em 2018, com registro CREA-SC 168536-8.</p>
