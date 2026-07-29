@@ -143,8 +143,8 @@
   .contact-cta{ margin-top:42px; }
   .contact-photo{ aspect-ratio:4/5; overflow:hidden; border-radius:2px; }
   .contact-photo img{ width:100%; height:100%; object-fit:cover; }
-  .map-wrap{ height:380px; background:#211f1b; position:relative; overflow:hidden; border-top:1px solid var(--line-dark); }
-  .map-wrap iframe{ width:100%; height:100%; border:0; filter:grayscale(1) invert(0.9) contrast(0.9); }
+  .map-wrap{ height:380px; background:#e9e5dd; position:relative; overflow:hidden; border-top:1px solid var(--line-dark); }
+  .map-wrap iframe{ width:100%; height:100%; border:0; filter:grayscale(0.35) contrast(1.02); }
   .map-note{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; text-align:center; padding:24px; }
   .map-note span{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--taupe); border:1px dashed var(--line-dark); padding:14px 22px; }
   .hours{ border-top:1px solid var(--line-dark); padding:44px 0 0; margin-top:56px; display:grid; grid-template-columns:repeat(3,1fr); gap:30px; }
@@ -153,6 +153,10 @@
 
   /* closing */
   .closing{ background:var(--bg); padding:150px 0; text-align:center; }
+  .closing.has-bg{ position:relative; overflow:hidden; }
+  .closing.has-bg > img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; }
+  .closing.has-bg::after{ content:""; position:absolute; inset:0; background:linear-gradient(to bottom, rgba(15,14,10,0.78), rgba(15,14,10,0.88)); z-index:1; }
+  .closing.has-bg .wrap{ position:relative; z-index:2; }
   .closing.wood{ background:var(--ironwood); padding:100px 0; }
   .closing h2{ font-size:clamp(28px,4.4vw,50px); color:var(--dark-ink); max-width:18ch; margin:0 auto 32px; }
   .closing h2 em{ color:var(--brass-soft); font-style:italic; }
@@ -297,8 +301,8 @@
   <div class="wrap">
     <div style="text-align:center; max-width:620px; margin:0 auto 56px;">
       <p class="eyebrow">Serviços</p>
-      <h2 style="font-size:clamp(30px,4vw,46px); margin-top:14px;">Do primeiro croqui à <em style="font-style:italic;color:var(--brass);">entrega das chaves</em>.</h2>
-      <p style="margin-top:18px; font-size:15px; line-height:1.8; color:#4a463d;">Arquitetura e engenharia na mesma equipe, para que nada se perca entre o desenho e a obra.</p>
+      <h2 style="font-size:clamp(30px,4vw,46px); margin-top:14px;">Do estudo do terreno ao <em style="font-style:italic;color:var(--brass);">projeto executivo</em>.</h2>
+      <p style="margin-top:18px; font-size:15px; line-height:1.8; color:#4a463d;">Arquitetura e engenharia na mesma equipe, para que o projeto chegue à obra sem lacunas. A execução fica com a construtora de sua confiança.</p>
     </div>
     <div class="svc-grid">
       <div class="svc-card">
@@ -341,10 +345,10 @@
 </section>
 
 <section class="band">
-  <img src="assets/img/atmo-01.jpg" alt="Processo de projeto Rosa Locks">
+  <img src="assets/img/fd-02.jpg" alt="Projeto residencial Rosa Locks">
   <div class="band-text" style="max-width:30ch;">
-    <h2>Tecnologia <em>BIM</em> em todas as etapas.</h2>
-    <p style="margin-top:18px; font-size:15px; line-height:1.75; color:#d8d2c6;">Mais precisão, menos imprevistos e previsibilidade de custo ao longo de toda a obra.</p>
+    <h2>Tecnologia <em>BIM</em> do início ao projeto executivo.</h2>
+    <p style="margin-top:18px; font-size:15px; line-height:1.75; color:#d8d2c6;">Estrutura e instalações compatibilizadas ainda no desenho: orçamento mais preciso e menos surpresa quando a obra começa.</p>
   </div>
 </section>
 
