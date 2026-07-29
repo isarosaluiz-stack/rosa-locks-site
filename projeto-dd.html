@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Casa D+D | Rosa Locks Arquitetura</title>
+<title>Residência D+D | Rosa Locks Arquitetura</title>
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="apple-touch-icon" href="assets/img/favicon.png">
 <meta name="theme-color" content="#1c1c1c">
-<meta name="description" content="Casa D+D, projeto residencial da Rosa Locks Arquitetura em Santa Catarina. Volumes de pedra e madeira em diálogo com o terreno.">
+<meta name="description" content="Residência D+D, projeto residencial da Rosa Locks Arquitetura em Santa Catarina. Volumes em diálogo com o terreno.">
 <link rel="canonical" href="https://rosalocks.com.br/projeto-dd.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Rosa Locks Arquitetura">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:title" content="Casa D+D | Rosa Locks Arquitetura">
-<meta property="og:description" content="Casa D+D, projeto residencial da Rosa Locks Arquitetura em Santa Catarina. Volumes de pedra e madeira em diálogo com o terreno.">
+<meta property="og:title" content="Residência D+D | Rosa Locks Arquitetura">
+<meta property="og:description" content="Residência D+D, projeto residencial da Rosa Locks Arquitetura em Santa Catarina. Volumes em diálogo com o terreno.">
 <meta property="og:url" content="https://rosalocks.com.br/projeto-dd.html">
 <meta property="og:image" content="https://rosalocks.com.br/assets/img/dd-01.jpg">
 <meta property="og:image:width" content="1200">
@@ -141,6 +141,21 @@
   .svc-wide{ grid-column:span 3; }
   .svc-half{ grid-column:span 3; }
 
+  /* processo */
+  .proc{ background:var(--bg); padding:110px 0; }
+  .proc .eyebrow{ margin-bottom:14px; }
+  .proc h2{ font-size:clamp(26px,3.4vw,38px); color:var(--dark-ink); max-width:18ch; }
+  .proc-steps{ margin-top:56px; border-top:1px solid var(--line-dark); }
+  .proc-step{ display:grid; grid-template-columns:90px 1fr; gap:28px; padding:34px 0; border-bottom:1px solid var(--line-dark); align-items:baseline; }
+  .proc-step .n{ font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:0.14em; color:var(--brass); }
+  .proc-step h3{ font-size:21px; font-style:italic; color:var(--dark-ink); }
+  .proc-step p{ margin-top:10px; font-size:14.5px; line-height:1.8; color:var(--taupe); max-width:62ch; }
+  .proc-360{ margin-top:56px; border:1px solid var(--brass); border-radius:2px; padding:40px 36px; display:grid; grid-template-columns:auto 1fr; gap:28px; align-items:center; }
+  .proc-360 svg{ width:44px; height:44px; }
+  .proc-360 svg path, .proc-360 svg circle, .proc-360 svg ellipse{ fill:none; stroke:var(--brass-soft); stroke-width:1.2; stroke-linecap:round; }
+  .proc-360 h3{ font-size:20px; font-style:italic; color:var(--dark-ink); }
+  .proc-360 p{ margin-top:8px; font-size:14.5px; line-height:1.75; color:#d8d2c6; max-width:60ch; }
+
   /* contato */
   .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; padding:70px 0 20px; }
   .contact-info h1{ font-size:clamp(30px,4vw,46px); line-height:1.15; }
@@ -205,9 +220,7 @@
   .gallery-hero{ margin-top:46px; height:66vh; min-height:400px; overflow:hidden; }
   .gallery-hero img{ width:100%; height:100%; object-fit:cover; }
   .thumbs{ display:grid; gap:2px; margin-top:2px; }
-  .thumbs.n1{ grid-template-columns:1fr; }
-  .thumbs.n2{ grid-template-columns:repeat(2,1fr); }
-  .thumbs.n3{ grid-template-columns:repeat(3,1fr); }
+  .thumbs{ grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); }
   .thumb{ aspect-ratio:4/3; overflow:hidden; cursor:pointer; position:relative; }
   .thumb img{ width:100%; height:100%; object-fit:cover; transition:transform .5s, opacity .3s; }
   .thumb:hover img{ transform:scale(1.05); }
@@ -277,6 +290,8 @@
     .svc-wide, .svc-half, .svc-card{ grid-column:span 1; }
     .svc-card{ padding:40px 24px; }
     .contact-grid{ grid-template-columns:1fr; gap:36px; padding-top:40px; }
+    .proc-step{ grid-template-columns:1fr; gap:6px; }
+    .proc-360{ grid-template-columns:1fr; gap:18px; padding:30px 24px; }
     .contact-photo{ aspect-ratio:4/3; }
     .hours{ grid-template-columns:1fr; gap:22px; }
     .map-wrap{ height:300px; }
@@ -313,7 +328,7 @@
 <div class="wrap"><a class="back-link" href="projetos.html">← Todos os projetos</a></div>
 <div class="wrap">
   <div class="proj-head">
-    <div><p class="eyebrow">Residencial · Santa Catarina</p><h1>Casa D+D</h1></div>
+    <div><p class="eyebrow">Residencial · Santa Catarina</p><h1>Residência D+D</h1></div>
     <div class="specs">
       <div class="spec-item"><div class="k">Local</div><div class="v">Santa Catarina</div></div>
       <div class="spec-item"><div class="k">Área</div><div class="v">[EDITAR] m²</div></div>
@@ -322,24 +337,24 @@
     </div>
   </div>
 </div>
-<div class="gallery-hero"><img id="mainimg" src="assets/img/dd-01.jpg" alt="Casa D+D, imagem principal"></div>
-<div class="thumbs n3"><div class="thumb"><img src="assets/img/dd-02.jpg" alt="Casa D+D, imagem 2" loading="lazy" data-full="assets/img/dd-02.jpg"></div><div class="thumb"><img src="assets/img/dd-03.jpg" alt="Casa D+D, imagem 3" loading="lazy" data-full="assets/img/dd-03.jpg"></div><div class="thumb"><img src="assets/img/dd-04.jpg" alt="Casa D+D, imagem 4" loading="lazy" data-full="assets/img/dd-04.jpg"></div></div>
+<div class="gallery-hero"><img id="mainimg" src="assets/img/dd-01.jpg" alt="Residência D+D, imagem principal"></div>
+
 <section class="narrative">
   <div class="wrap">
-    <div><p class="eyebrow">Sobre o projeto</p><h2>Volumes de pedra e madeira em diálogo com o terreno.</h2></div>
+    <div><p class="eyebrow">Sobre o projeto</p><h2>Volumes em diálogo com o terreno.</h2></div>
     <div class="narrative-body">
-      <p>[EDITAR] Um resumo do partido: o que o terreno pediu, a implantação, a orientação solar e o programa da família. A Rosa Locks escreve a partir do que o José contar.</p>
-      <p>[EDITAR] O uso de pedra natural e madeira define a materialidade da fachada; a piscina e a área externa foram pensadas como extensão das áreas de convívio.</p>
-      <p>Projeto modelado inteiramente em BIM, compatibilizando estrutura, elétrica e hidráulica antes do início da obra.</p>
+      <p>[EDITAR] O partido do projeto: o que o terreno e o programa pediram.</p>
+      <p>[EDITAR] Materialidade, iluminação e como os ambientes se conectam.</p>
+      <p>Projeto modelado em BIM, compatibilizando estrutura e instalações antes da obra.</p>
     </div>
   </div>
 </section>
 <section class="related">
   <div class="wrap">
     <p class="eyebrow">Continue navegando</p><h2>Outro projeto que pode interessar</h2>
-    <a class="related-card" href="projeto-fd.html">
-      <div class="rc-img"><img src="assets/img/fd-01.jpg" alt="Casa F+D" loading="lazy"></div>
-      <div class="rc-body"><h3>Casa F+D</h3><p class="meta">Santa Catarina · Residencial</p></div>
+    <a class="related-card" href="projeto-rg.html">
+      <div class="rc-img"><img src="assets/img/rg-01.jpg" alt="Residência R+G" loading="lazy"></div>
+      <div class="rc-body"><h3>Residência R+G</h3><p class="meta">Santa Catarina · Residencial</p></div>
     </a>
   </div>
 </section>
@@ -399,12 +414,6 @@
     var io=new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting){ e.target.style.opacity=1; e.target.style.transform='none'; io.unobserve(e.target);} }); },{threshold:0.12});
     els.forEach(function(c){ io.observe(c); }); })();
 </script>
-<script>
-  var hero=document.getElementById('mainimg');
-  document.querySelectorAll('.thumb img').forEach(function(t){
-    t.addEventListener('click',function(){ var f=t.getAttribute('data-full'); var old=hero.getAttribute('src');
-      hero.style.opacity=0; setTimeout(function(){ hero.setAttribute('src',f); t.setAttribute('data-full',old); t.setAttribute('src',old); hero.style.opacity=1; },180); });
-  }); hero.style.transition='opacity .25s ease';
-</script>
+
 </body>
 </html>
