@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Casa F+D — Rosa Locks Arquitetura</title>
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" href="assets/img/favicon.png">
+<meta name="theme-color" content="#1c1c1c">
 <meta name="description" content="Rosa Locks Arquitetura e Engenharia — projetos residenciais e de interiores de alto padrão em Criciúma e no litoral de Santa Catarina.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300,0,0;0,9..144,400,0,0;0,9..144,500,0,0;1,9..144,400,0,0;1,9..144,500,0,0&family=Work+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -114,6 +117,40 @@
   .service-row h3{ font-size:24px; font-style:italic; }
   .service-row p{ font-size:15px; line-height:1.8; color:#4a463d; max-width:52ch; }
 
+
+  /* servicos - grade de icones */
+  .svc-grid{ display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--line-paper); border-left:1px solid var(--line-paper); }
+  .svc-card{ padding:52px 34px; border-right:1px solid var(--line-paper); border-bottom:1px solid var(--line-paper); text-align:center; transition:background .3s ease; }
+  .svc-card:hover{ background:rgba(182,126,87,0.05); }
+  .svc-card .ico{ width:34px; height:34px; margin:0 auto 22px; display:block; }
+  .svc-card .ico path, .svc-card .ico line, .svc-card .ico rect, .svc-card .ico circle, .svc-card .ico polyline{ fill:none; stroke:var(--brass); stroke-width:1.1; stroke-linecap:round; stroke-linejoin:round; }
+  .svc-card h3{ font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--paper-ink); }
+  .svc-card p{ margin-top:14px; font-size:13.5px; line-height:1.75; color:#4a463d; max-width:32ch; margin-left:auto; margin-right:auto; }
+  .svc-wide{ grid-column:span 3; }
+
+  /* contato */
+  .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; padding:70px 0 20px; }
+  .contact-info h1{ font-size:clamp(30px,4vw,46px); line-height:1.15; }
+  .contact-info h1 em{ font-style:italic; color:var(--brass-soft); }
+  .contact-info .lede{ margin-top:20px; font-size:15.5px; line-height:1.8; color:#d8d2c6; max-width:42ch; }
+  .contact-list{ margin-top:40px; display:grid; gap:20px; }
+  .contact-item{ display:flex; align-items:flex-start; gap:16px; }
+  .contact-item .ico{ width:19px; height:19px; flex:0 0 19px; margin-top:2px; }
+  .contact-item .ico path, .contact-item .ico circle, .contact-item .ico rect{ fill:none; stroke:var(--brass-soft); stroke-width:1.2; stroke-linecap:round; stroke-linejoin:round; }
+  .contact-item .k{ font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--taupe); }
+  .contact-item .v{ margin-top:4px; font-size:15px; color:var(--dark-ink); line-height:1.55; }
+  .contact-item a.v:hover{ color:var(--brass-soft); }
+  .contact-cta{ margin-top:42px; }
+  .contact-photo{ aspect-ratio:4/5; overflow:hidden; border-radius:2px; }
+  .contact-photo img{ width:100%; height:100%; object-fit:cover; }
+  .map-wrap{ height:380px; background:#211f1b; position:relative; overflow:hidden; border-top:1px solid var(--line-dark); }
+  .map-wrap iframe{ width:100%; height:100%; border:0; filter:grayscale(1) invert(0.9) contrast(0.9); }
+  .map-note{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; text-align:center; padding:24px; }
+  .map-note span{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--taupe); border:1px dashed var(--line-dark); padding:14px 22px; }
+  .hours{ border-top:1px solid var(--line-dark); padding:44px 0 0; margin-top:56px; display:grid; grid-template-columns:repeat(3,1fr); gap:30px; }
+  .hours .k{ font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--taupe); }
+  .hours .v{ margin-top:8px; font-size:14.5px; color:#d8d2c6; line-height:1.6; }
+
   /* closing */
   .closing{ background:var(--bg); padding:150px 0; text-align:center; }
   .closing.wood{ background:var(--ironwood); padding:100px 0; }
@@ -182,12 +219,50 @@
   .studio-bio p{ font-size:16px; line-height:1.85; color:#d8d2c6; max-width:56ch; }
   .studio-bio p + p{ margin-top:16px; }
 
+
+  /* menu mobile */
+  .nav-toggle{ display:none; background:none; border:0; padding:10px; cursor:pointer; z-index:120; position:relative; }
+  .nav-toggle span{ display:block; width:24px; height:1.5px; background:var(--dark-ink); margin:5px 0; transition:transform .3s ease, opacity .2s ease; }
+  .nav-toggle.open span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2){ opacity:0; }
+  .nav-toggle.open span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
+  body.nav-open{ overflow:hidden; }
+
   @media (max-width:860px){
-    nav.primary-nav a:not(.btn-whats){ display:none; }
+    .nav-toggle{ display:block; }
+    /* hero em tela pequena: eyebrow legivel, titulo maior, respiro certo */
+    .hero{ min-height:92svh; }
+    .hero-inner{ padding-top:108px; padding-bottom:7vh; }
+    .hero-inner .eyebrow{ font-size:9.5px; letter-spacing:0.12em; line-height:1.6; margin-bottom:16px; max-width:26ch; }
+    .hero h1{ font-size:clamp(30px,8.4vw,44px); line-height:1.14; max-width:13ch; }
+    .hero .lede{ font-size:14.5px; line-height:1.65; margin-top:18px; max-width:38ch; }
+    .hero-actions{ margin-top:26px; gap:14px; }
+    .hero-actions .hint{ font-size:10px; }
+    .hero-media::after{ background:linear-gradient(to top, rgba(15,14,10,0.94) 0%, rgba(15,14,10,0.62) 45%, rgba(15,14,10,0.34) 100%); }
+    .logo-img{ height:56px; }
+    header.solid .logo-img{ height:46px; }
+    .eyebrow{ letter-spacing:0.13em; }
+    nav.primary-nav{
+      position:fixed; inset:0; background:rgba(20,19,15,0.985);
+      flex-direction:column; justify-content:center; align-items:center; gap:30px;
+      transform:translateX(100%); transition:transform .35s cubic-bezier(.4,0,.2,1);
+      z-index:110; padding:80px 24px;
+    }
+    nav.primary-nav.open{ transform:translateX(0); }
+    nav.primary-nav a{ font-size:15px; letter-spacing:0.16em; opacity:1; }
+    nav.primary-nav .btn-whats{ font-size:12px; padding:14px 26px; margin-top:10px; }
+    header.solid{ background:rgba(20,19,15,0.96); }
     .intro .wrap{ grid-template-columns:1fr; gap:40px; }
     .grid2,.grid3{ grid-template-columns:1fr; }
     .band{ height:50vh; }
     .service-row{ grid-template-columns:1fr; gap:10px; }
+    .svc-grid{ grid-template-columns:1fr; }
+    .svc-wide{ grid-column:span 1; }
+    .svc-card{ padding:40px 24px; }
+    .contact-grid{ grid-template-columns:1fr; gap:36px; padding-top:40px; }
+    .contact-photo{ aspect-ratio:4/3; }
+    .hours{ grid-template-columns:1fr; gap:22px; }
+    .map-wrap{ height:300px; }
     .portfolio-head{ flex-direction:column; align-items:flex-start; }
     .proj-head{ grid-template-columns:1fr; }
     .narrative .wrap{ grid-template-columns:1fr; }
@@ -207,11 +282,13 @@
 <header class="static">
   <div class="wrap">
     <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="Rosa Locks Arquitetura" class="logo-img"></a>
-    <nav class="primary-nav">
+    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal"><span></span><span></span><span></span></button>
+    <nav class="primary-nav" id="menu-principal">
       <a href="projetos.html" class="current">Projetos</a>
+      <a href="servicos.html">Serviços</a>
       <a href="estudio.html">Estúdio</a>
-      <a href="index.html#servicos">Serviços</a>
-      <a class="btn-whats" href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20falar%20sobre%20um%20projeto." target="_blank" rel="noopener">Falar no WhatsApp</a>
+      <a href="contato.html">Contato</a>
+      <a class="btn-whats" href="https://wa.me/554888761429?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20falar%20sobre%20um%20projeto." target="_blank" rel="noopener">Falar no WhatsApp</a>
     </nav>
   </div>
 </header>
@@ -252,7 +329,7 @@
 <section class="closing wood">
   <div class="wrap">
     <h2>Gostou do que viu? <em>Fale conosco</em> e conte o seu projeto.</h2>
-    <a class="btn-whats" style="padding:15px 30px;font-size:12px;" href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20falar%20sobre%20um%20projeto." target="_blank" rel="noopener">Iniciar uma conversa</a>
+    <a class="btn-whats" style="padding:15px 30px;font-size:12px;" href="https://wa.me/554888761429?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20falar%20sobre%20um%20projeto." target="_blank" rel="noopener">Iniciar uma conversa</a>
   </div>
 </section>
 
@@ -260,13 +337,33 @@
   <div class="wrap">
     <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="Rosa Locks Arquitetura" class="logo-img"></a>
     <div class="foot-links">
-      <span>Criciúma · SC</span>
+      <a href="projetos.html">Projetos</a>
+      <a href="servicos.html">Serviços</a>
+      <a href="estudio.html">Estúdio</a>
+      <a href="contato.html">Contato</a>
       <a href="https://instagram.com/rosalocks.arq" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://wa.me/55XXXXXXXXXXX?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20falar%20sobre%20um%20projeto." target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://wa.me/554888761429?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20falar%20sobre%20um%20projeto." target="_blank" rel="noopener">WhatsApp</a>
     </div>
   </div>
 </footer>
 <script>
+  // menu mobile
+  (function(){
+    var t=document.querySelector('.nav-toggle'), n=document.querySelector('.primary-nav');
+    if(!t||!n) return;
+    function toggle(force){
+      var open = (typeof force==='boolean') ? force : !n.classList.contains('open');
+      n.classList.toggle('open', open);
+      t.classList.toggle('open', open);
+      document.body.classList.toggle('nav-open', open);
+      t.setAttribute('aria-expanded', open ? 'true' : 'false');
+      t.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    }
+    t.addEventListener('click', function(){ toggle(); });
+    n.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ toggle(false); }); });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape') toggle(false); });
+    window.addEventListener('resize', function(){ if(window.innerWidth>860) toggle(false); });
+  })();
   // header ganha fundo ao rolar (só na home, onde é fixo transparente)
   (function(){ var h=document.querySelector('header'); if(!h||h.classList.contains('static'))return;
     function on(){ if(window.scrollY>40) h.classList.add('solid'); else h.classList.remove('solid'); }
