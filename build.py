@@ -22,7 +22,7 @@ CSS = """
     --line-dark: rgba(242,239,234,0.14); --line-paper: rgba(28,28,28,0.14);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
+  html{ scroll-behavior:smooth; overflow-x:hidden; }
   body{ background:var(--bg); color:var(--dark-ink); font-family:'Work Sans',sans-serif; font-weight:300; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
   a{color:inherit; text-decoration:none;}
   img{max-width:100%; display:block;}
@@ -250,6 +250,7 @@ CSS = """
   .nav-toggle.open span:nth-child(2){ opacity:0; }
   .nav-toggle.open span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
   body.nav-open{ overflow:hidden; }
+  body.nav-open header{ -webkit-backdrop-filter:none !important; backdrop-filter:none !important; }
 
   @media (max-width:860px){
     .nav-toggle{ display:block; }
@@ -276,6 +277,7 @@ CSS = """
     nav.primary-nav .btn-whats{ font-size:12px; padding:14px 26px; margin-top:10px; }
     header.solid{ background:rgba(20,19,15,0.96); }
     .intro .wrap{ grid-template-columns:1fr; gap:40px; }
+    .intro.flip .wrap{ grid-template-columns:1fr; }
     .grid2,.grid3{ grid-template-columns:1fr; }
     .band{ height:50vh; }
     .service-row{ grid-template-columns:1fr; gap:10px; }
