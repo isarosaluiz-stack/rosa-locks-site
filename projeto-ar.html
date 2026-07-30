@@ -338,7 +338,7 @@
   </div>
 </div>
 <div class="gallery-hero"><img id="mainimg" src="assets/img/ar-01.jpg" alt="Residência A+R, imagem principal"></div>
-
+<div class="thumbs n3"><div class="thumb"><img src="assets/img/ar-02.jpg" alt="Residência A+R, imagem 2" loading="lazy" data-full="assets/img/ar-02.jpg"></div><div class="thumb"><img src="assets/img/ar-03.jpg" alt="Residência A+R, imagem 3" loading="lazy" data-full="assets/img/ar-03.jpg"></div><div class="thumb"><img src="assets/img/ar-04.jpg" alt="Residência A+R, imagem 4" loading="lazy" data-full="assets/img/ar-04.jpg"></div><div class="thumb"><img src="assets/img/ar-05.jpg" alt="Residência A+R, imagem 5" loading="lazy" data-full="assets/img/ar-05.jpg"></div><div class="thumb"><img src="assets/img/ar-06.jpg" alt="Residência A+R, imagem 6" loading="lazy" data-full="assets/img/ar-06.jpg"></div><div class="thumb"><img src="assets/img/ar-07.jpg" alt="Residência A+R, imagem 7" loading="lazy" data-full="assets/img/ar-07.jpg"></div><div class="thumb"><img src="assets/img/ar-08.jpg" alt="Residência A+R, imagem 8" loading="lazy" data-full="assets/img/ar-08.jpg"></div><div class="thumb"><img src="assets/img/ar-09.jpg" alt="Residência A+R, imagem 9" loading="lazy" data-full="assets/img/ar-09.jpg"></div><div class="thumb"><img src="assets/img/ar-10.jpg" alt="Residência A+R, imagem 10" loading="lazy" data-full="assets/img/ar-10.jpg"></div><div class="thumb"><img src="assets/img/ar-11.jpg" alt="Residência A+R, imagem 11" loading="lazy" data-full="assets/img/ar-11.jpg"></div><div class="thumb"><img src="assets/img/ar-12.jpg" alt="Residência A+R, imagem 12" loading="lazy" data-full="assets/img/ar-12.jpg"></div><div class="thumb"><img src="assets/img/ar-13.jpg" alt="Residência A+R, imagem 13" loading="lazy" data-full="assets/img/ar-13.jpg"></div><div class="thumb"><img src="assets/img/ar-14.jpg" alt="Residência A+R, imagem 14" loading="lazy" data-full="assets/img/ar-14.jpg"></div><div class="thumb"><img src="assets/img/ar-15.jpg" alt="Residência A+R, imagem 15" loading="lazy" data-full="assets/img/ar-15.jpg"></div><div class="thumb"><img src="assets/img/ar-16.jpg" alt="Residência A+R, imagem 16" loading="lazy" data-full="assets/img/ar-16.jpg"></div><div class="thumb"><img src="assets/img/ar-17.jpg" alt="Residência A+R, imagem 17" loading="lazy" data-full="assets/img/ar-17.jpg"></div><div class="thumb"><img src="assets/img/ar-18.jpg" alt="Residência A+R, imagem 18" loading="lazy" data-full="assets/img/ar-18.jpg"></div></div>
 <section class="narrative">
   <div class="wrap">
     <div><p class="eyebrow">Sobre o projeto</p><h2>Contemporânea, aberta e voltada para o convívio.</h2></div>
@@ -414,6 +414,12 @@
     var io=new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting){ e.target.style.opacity=1; e.target.style.transform='none'; io.unobserve(e.target);} }); },{threshold:0.12});
     els.forEach(function(c){ io.observe(c); }); })();
 </script>
-
+<script>
+  var hero=document.getElementById('mainimg');
+  document.querySelectorAll('.thumb img').forEach(function(t){
+    t.addEventListener('click',function(){ var f=t.getAttribute('data-full'); var old=hero.getAttribute('src');
+      hero.style.opacity=0; setTimeout(function(){ hero.setAttribute('src',f); t.setAttribute('data-full',old); t.setAttribute('src',old); hero.style.opacity=1; },180); });
+  }); hero.style.transition='opacity .25s ease';
+</script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 """Gera o site estático da Rosa Locks a partir de um template comum."""
 import os
 
-OUT = "site"
+OUT = "."
 os.makedirs(OUT, exist_ok=True)
 
 # ---- Configurações que o José troca depois ----
@@ -435,11 +435,11 @@ import glob as _glob
 def _imgs(slug):
     """Descobre as imagens do projeto na pasta assets/img (slug-01.jpg, slug-02.jpg, ...)."""
     achadas = sorted(_glob.glob(f"{OUT}/assets/img/{slug}-[0-9][0-9].jpg"))
-    return [a.split("/")[-1] for a in achadas] or [f"{slug}-01.jpg"]
+    return [os.path.basename(a) for a in achadas] or [f"{slug}-01.jpg"]
 
 def _plantas(slug):
     achadas = sorted(_glob.glob(f"{OUT}/assets/img/{slug}-planta-[0-9][0-9].jpg"))
-    return [a.split("/")[-1] for a in achadas]
+    return [os.path.basename(a) for a in achadas]
 
 _NARR_PADRAO = [
   "[EDITAR] O partido do projeto: o que o terreno e o programa pediram.",
@@ -561,7 +561,7 @@ home_body = f"""
   </div>
 </section>
 """
-open(f"{OUT}/index.html","w").write(page("Rosa Locks Arquitetura | Criciúma &amp; Litoral de SC", home_body, "início", static=False, url="", desc="Escritório de arquitetura autoral em Criciúma e litoral de Santa Catarina. Projetos residenciais, interiores e comerciais assinados pela arquiteta Isadora Rosa."))
+open(f"{OUT}/index.html","w",encoding="utf-8").write(page("Rosa Locks Arquitetura | Criciúma &amp; Litoral de SC", home_body, "início", static=False, url="", desc="Escritório de arquitetura autoral em Criciúma e litoral de Santa Catarina. Projetos residenciais, interiores e comerciais assinados pela arquiteta Isadora Rosa."))
 
 # =================== PROJETOS (grid) ===================
 grid_cards = "\n".join(card(p) for p in PROJETOS)
@@ -593,7 +593,7 @@ filter_js = """<script>
     cards.forEach(function(c){ c.style.display=(f==='todos'||c.getAttribute('data-tipo')===f)?'':'none'; });
   }); });
 </script>"""
-open(f"{OUT}/projetos.html","w").write(page("Projetos | Rosa Locks Arquitetura", projetos_body, "projetos", static=True, extra_js=filter_js, url="projetos.html", desc="Portfólio da Rosa Locks Arquitetura: residências e projetos de interiores de alto padrão em Criciúma e no litoral catarinense."))
+open(f"{OUT}/projetos.html","w",encoding="utf-8").write(page("Projetos | Rosa Locks Arquitetura", projetos_body, "projetos", static=True, extra_js=filter_js, url="projetos.html", desc="Portfólio da Rosa Locks Arquitetura: residências e projetos de interiores de alto padrão em Criciúma e no litoral catarinense."))
 
 # =================== PROJETO (detalhe) x4 ===================
 def detail(p):
@@ -652,7 +652,7 @@ def detail(p):
 </section>
 """
     html = page(f"{p['nome']} | Rosa Locks Arquitetura", body, "projetos", static=True, extra_js=(swap_js if rest else ""), url=f"projeto-{p['slug']}.html", og_img=p['imgs'][0], desc=f"{p['nome']}, projeto {p['tipo_label'].lower()} da Rosa Locks Arquitetura em {p['local']}. {p['h2']}")
-    open(f"{OUT}/projeto-{p['slug']}.html","w").write(html)
+    open(f"{OUT}/projeto-{p['slug']}.html","w",encoding="utf-8").write(html)
 
 for p in PROJETOS: detail(p)
 
@@ -726,7 +726,7 @@ estudio_body = f"""
   </div>
 </section>
 """
-open(f"{OUT}/estudio.html","w").write(page("O Estúdio | Rosa Locks Arquitetura", estudio_body, "estúdio", static=True, url="estudio.html", og_img="isadora.jpg", desc="Quem assina a Rosa Locks: a arquiteta Isadora Rosa e o engenheiro civil José Locks. Projeto autoral e responsabilidade técnica no mesmo escritório."))
+open(f"{OUT}/estudio.html","w",encoding="utf-8").write(page("O Estúdio | Rosa Locks Arquitetura", estudio_body, "estúdio", static=True, url="estudio.html", og_img="isadora.jpg", desc="Quem assina a Rosa Locks: a arquiteta Isadora Rosa e o engenheiro civil José Locks. Projeto autoral e responsabilidade técnica no mesmo escritório."))
 
 
 # =================== SERVIÇOS ===================
@@ -833,7 +833,7 @@ servicos_body = f"""
   </div>
 </section>
 """
-open(f"{OUT}/servicos.html","w").write(page("Serviços | Rosa Locks Arquitetura", servicos_body, "serviços", static=True, url="servicos.html", desc="Arquitetura residencial e comercial, interiores, aprovações e regularização, e coordenação de projetos complementares em Criciúma e litoral de SC."))
+open(f"{OUT}/servicos.html","w",encoding="utf-8").write(page("Serviços | Rosa Locks Arquitetura", servicos_body, "serviços", static=True, url="servicos.html", desc="Arquitetura residencial e comercial, interiores, aprovações e regularização, e coordenação de projetos complementares em Criciúma e litoral de SC."))
 
 # =================== CONTATO ===================
 ICO_PIN = '<path d="M10 8.5c0 4.5-6 10-6 10s-6-5.5-6-10a6 6 0 1112 0z" transform="translate(6 0)"/><circle cx="10" cy="8.5" r="2.2"/>'
@@ -898,7 +898,7 @@ contato_body = f"""
   </div>
 </section>
 """
-open(f"{OUT}/contato.html","w").write(page("Contato | Rosa Locks Arquitetura", contato_body, "contato", static=True, url="contato.html", og_img="rg-01.jpg", desc="Fale com a Rosa Locks Arquitetura. Atendimento por WhatsApp e escritório na Rua São José, 392, Centro, Criciúma, SC."))
+open(f"{OUT}/contato.html","w",encoding="utf-8").write(page("Contato | Rosa Locks Arquitetura", contato_body, "contato", static=True, url="contato.html", og_img="rg-01.jpg", desc="Fale com a Rosa Locks Arquitetura. Atendimento por WhatsApp e escritório na Rua São José, 392, Centro, Criciúma, SC."))
 
 print("OK, páginas geradas:")
 for f in sorted(os.listdir(OUT)):
