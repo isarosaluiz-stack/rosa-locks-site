@@ -29,8 +29,8 @@
     --line-dark: rgba(242,239,234,0.14); --line-paper: rgba(28,28,28,0.14);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
-  html{ scroll-behavior:smooth; overflow-x:hidden; }
-  body{ background:var(--bg); color:var(--dark-ink); font-family:'Work Sans',sans-serif; font-weight:300; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  html{ scroll-behavior:smooth; overflow-x:hidden; overflow-x:clip; }
+  body{ background:var(--bg); color:var(--dark-ink); font-family:'Work Sans',sans-serif; font-weight:300; -webkit-font-smoothing:antialiased; overflow-x:hidden; overflow-x:clip; }
   a{color:inherit; text-decoration:none;}
   img{max-width:100%; display:block;}
   .eyebrow{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--brass); }
@@ -345,9 +345,8 @@
   <div class="wrap">
     <div><p class="eyebrow">Sobre o projeto</p><h2>Arquitetura em níveis, moldada pela topografia.</h2></div>
     <div class="narrative-body">
-      <p>A implantação acompanha o desnível do terreno, distribuindo o programa em diferentes pavimentos e preservando as vistas para a paisagem.</p>
-      <p>Concreto, madeira e pedra reforçam a integração com o entorno, enquanto grandes aberturas conectam os ambientes internos às áreas externas.</p>
-      <p>Projeto modelado em BIM, compatibilizando estrutura e instalações antes da obra.</p>
+      <p>Em vez de adaptar o terreno ao projeto, a arquitetura se adapta ao terreno. A implantação acompanha o desnível natural, revelando diferentes perspectivas da paisagem e uma integração contínua entre os ambientes.</p>
+      <p>Grandes aberturas, materiais naturais e espaços generosos criam uma residência contemporânea, onde arquitetura e natureza fazem parte da mesma experiência.</p>
     </div>
   </div>
 </section>

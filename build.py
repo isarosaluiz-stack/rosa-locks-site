@@ -22,8 +22,8 @@ CSS = """
     --line-dark: rgba(242,239,234,0.14); --line-paper: rgba(28,28,28,0.14);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
-  html{ scroll-behavior:smooth; overflow-x:hidden; }
-  body{ background:var(--bg); color:var(--dark-ink); font-family:'Work Sans',sans-serif; font-weight:300; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  html{ scroll-behavior:smooth; overflow-x:hidden; overflow-x:clip; }
+  body{ background:var(--bg); color:var(--dark-ink); font-family:'Work Sans',sans-serif; font-weight:300; -webkit-font-smoothing:antialiased; overflow-x:hidden; overflow-x:clip; }
   a{color:inherit; text-decoration:none;}
   img{max-width:100%; display:block;}
   .eyebrow{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--brass); }
@@ -449,18 +449,18 @@ _NARR_PADRAO = [
   "Projeto modelado em BIM, compatibilizando estrutura e instalações antes da obra."]
 
 PROJETOS = [
-  dict(slug='ar', nome='Residência A+R', tipo='interiores', tipo_label='Interiores', capa='ar-09.jpg', escopo='Projeto de interiores', related='dd', local='Criciúma, SC', area='140 m²', ano='2024', h2='Interiores que equilibram funcionalidade, unidade e acolhimento.', narr=['A marcenaria sob medida organiza os ambientes, enquanto a madeira, os tons neutros e a iluminação integrada criam uma atmosfera elegante e confortável.', 'Projeto desenvolvido em BIM, compatibilizando cada detalhe antes da obra.']),
-  dict(slug='dd', nome='Residência D+D', tipo='residencial', tipo_label='Residencial', escopo='Projeto completo', related='rg', local='Balneário Camboriú, SC', area='517,26 m²', ano='2026', h2='Arquitetura em níveis, moldada pela topografia.', narr=['A implantação acompanha o desnível do terreno, distribuindo o programa em diferentes pavimentos e preservando as vistas para a paisagem.', 'Concreto, madeira e pedra reforçam a integração com o entorno, enquanto grandes aberturas conectam os ambientes internos às áreas externas.', 'Projeto modelado em BIM, compatibilizando estrutura e instalações antes da obra.']),
-  dict(slug='rg', nome='Residência R+G', tipo='residencial', tipo_label='Residencial', escopo='Projeto completo', related='luxi', local='Palhoça, SC', area='450 m²', ano='2025', h2='Espaços pensados para acolher a rotina e ampliar o convívio.', narr=['O programa organiza áreas sociais integradas e ambientes íntimos mais reservados, criando uma casa fluida e funcional.', 'Tons neutros, madeira, transparências e iluminação indireta compõem uma atmosfera contemporânea e acolhedora.', 'Projeto modelado em BIM, compatibilizando estrutura e instalações antes da obra.']),
-  dict(slug='luxi', nome='Residência Luxi', tipo='residencial', tipo_label='Residencial', escopo='Projeto completo', related='laguna', local='Jaguaruna, SC', area='520 m²', ano='2024', h2='Arquitetura que se abre à paisagem com leveza e permanência.', narr=['Planos horizontais e grandes balanços organizam a casa, protegem os ambientes e conectam interior, jardim e áreas de convívio.', 'Concreto, madeira e pedra criam uma materialidade natural, valorizada pela iluminação e pela vegetação tropical.', 'Projeto modelado em BIM, compatibilizando estrutura e instalações antes da obra.']),
-  dict(slug='laguna', nome='Residência Laguna', tipo='residencial', tipo_label='Residencial', escopo='Projeto completo', related='edificio-jl', local='Laguna, SC', area='420 m²', ano='2024', h2='Leveza, privacidade e integração em equilíbrio.', narr=['O partido organiza a casa em dois pavimentos, liberando o térreo para o convívio e preservando a intimidade dos ambientes superiores.', 'Volumes claros, madeira, pedra e vegetação compõem uma arquitetura acolhedora, conectada à luz natural e às áreas externas.', 'Projeto modelado em BIM, compatibilizando estrutura e instalações antes da obra.']),
-  dict(slug='edificio-jl', nome='Edifício JL', tipo='residencial', tipo_label='Residencial', escopo='Projeto completo', related='kitnet-natal', local='Forquilhinha, SC', area='a confirmar', ano='2023', h2='Verticalidade marcada por ritmo, sombra e vegetação.', narr=['O programa se organiza em diferentes pavimentos, aproveitando o lote urbano e estabelecendo uma relação direta com a rua.', 'Brises, vidro, tons amadeirados e jardineiras conferem profundidade à fachada, controlam a incidência solar e suavizam a escala do edifício.', 'Projeto modelado em BIM, compatibilizando estrutura e instalações antes da obra.']),
-  dict(slug='kitnet-natal', nome='Kitnet Natal', tipo='interiores', tipo_label='Interiores', capa='kitnet-natal-06.jpg', escopo='Projeto de interiores', related='varanda', local='Criciúma, SC', area='35,56 m²', ano='2022', h2='Cada centímetro pensado para ampliar as possibilidades de uso.', narr=['O layout compacto reúne estar, trabalho e descanso com soluções multifuncionais e aproveitamento vertical.', 'Tons escuros, estrutura metálica e iluminação pontual criam uma atmosfera urbana, funcional e acolhedora.', 'Projeto modelado em BIM, compatibilizando marcenaria, iluminação e instalações antes da obra.']),
-  dict(slug='varanda', nome='Residencial Varanda', tipo='interiores', tipo_label='Interiores', escopo='Interiores + marcenaria', related='ar', local='Florianópolis, SC', area='224 m²', ano='2025', h2='Interiores desenhados sob medida, do piso à marcenaria.', narr=['A integração entre estar, jantar e varanda orienta o projeto, criando continuidade visual e espaços amplos para o convívio.', 'Madeira, tons claros e iluminação indireta compõem uma atmosfera leve e acolhedora, conectada à paisagem.', 'Projeto modelado em BIM, compatibilizando marcenaria, iluminação e instalações antes da obra.']),
-  dict(slug='ezos', nome='Grupo Ezos', tipo='comercial', tipo_label='Comercial', escopo='Arquitetura corporativa', related='saint-bier', local='Criciúma, SC', area='88,23 m²', ano='2023', h2='Identidade corporativa traduzida em espaço.', narr=['O layout organiza trabalho, atendimento e armazenamento em um ambiente funcional e representativo.', 'Madeira, tons escuros e a cor institucional reforçam a marca, enquanto a iluminação linear dá unidade ao conjunto.', 'Projeto modelado em BIM, compatibilizando marcenaria, iluminação e instalações antes da obra.']),
-  dict(slug='saint-bier', nome='Saint Bier', tipo='comercial', tipo_label='Comercial', escopo='Arquitetura comercial', related='tigre', local='Forquilhinha, SC', area='66,55 m²', ano='2022', h2='Arquitetura que convida a permanecer.', narr=['O layout organiza bar, mesas e circulação para tornar o atendimento eficiente e favorecer os encontros.', 'Madeira, tijolo, vegetação e iluminação quente constroem uma atmosfera acolhedora e marcante.', 'Projeto modelado em BIM, compatibilizando marcenaria, iluminação e instalações antes da obra.']),
-  dict(slug='tigre', nome='Tigre Sports Bar', tipo='comercial', tipo_label='Comercial', capa='tigre-02.jpg', escopo='Arquitetura comercial', related='ciee', local='Estádio, Criciúma, SC', area='a confirmar', ano='2022', h2='Um sports bar que veste as cores do Tigre.', narr=['O salão reúne bar, mesas e área de jogos, com telões e painéis que colocam a torcida do Criciúma no centro do ambiente.', 'Madeira, tons escuros e o amarelo do clube constroem um espaço vibrante, feito para viver cada jogo entre amigos.']),
-  dict(slug='ciee', nome='CIEE', tipo='comercial', tipo_label='Comercial', escopo='Arquitetura corporativa', related='ezos', local='Criciúma, SC', area='a confirmar', ano='2026', h2='Arquitetura corporativa com identidade institucional.', narr=['O programa organiza os espaços de trabalho e atendimento em um edifício funcional e representativo, à altura da instituição.', 'Volumes limpos e materiais sóbrios reforçam a imagem corporativa e a presença do edifício na cidade.', 'Projeto modelado em BIM, compatibilizando estrutura e instalações antes da obra.']),
+  dict(slug='ar', nome='Residência A+R', tipo='interiores', tipo_label='Interiores', capa='ar-09.jpg', escopo='Projeto de interiores', related='dd', local='Criciúma, SC', area='140 m²', ano='2024', h2='Interiores pensados para serem vividos.', narr=['Cada ambiente foi desenhado para refletir a rotina da família, unindo conforto, funcionalidade e uma linguagem visual única.', 'A marcenaria sob medida organiza os espaços, enquanto materiais naturais, tons neutros e iluminação integrada criam uma atmosfera acolhedora e atemporal.']),
+  dict(slug='dd', nome='Residência D+D', tipo='residencial', tipo_label='Residencial', escopo='Projeto completo', related='rg', local='Balneário Camboriú, SC', area='517,26 m²', ano='2026', h2='Arquitetura em níveis, moldada pela topografia.', narr=['Em vez de adaptar o terreno ao projeto, a arquitetura se adapta ao terreno. A implantação acompanha o desnível natural, revelando diferentes perspectivas da paisagem e uma integração contínua entre os ambientes.', 'Grandes aberturas, materiais naturais e espaços generosos criam uma residência contemporânea, onde arquitetura e natureza fazem parte da mesma experiência.']),
+  dict(slug='rg', nome='Residência R+G', tipo='residencial', tipo_label='Residencial', escopo='Projeto completo', related='luxi', local='Palhoça, SC', area='450 m²', ano='2025', h2='Arquitetura pensada para viver e receber.', narr=['O projeto valoriza a integração entre os ambientes sociais, criando espaços amplos, iluminados e preparados para reunir a família sem abrir mão da privacidade dos ambientes íntimos.', 'Materiais naturais, iluminação indireta e grandes aberturas reforçam a sensação de aconchego, enquanto a arquitetura contemporânea cria uma casa elegante e acolhedora.']),
+  dict(slug='luxi', nome='Residência L+D', tipo='residencial', tipo_label='Residencial', escopo='Projeto completo', related='laguna', local='Jaguaruna, SC', area='520 m²', ano='2024', h2='Arquitetura integrada à paisagem.', narr=['A implantação privilegia a integração entre arquitetura e paisagem, criando ambientes amplos, iluminados e conectados às áreas externas.', 'Concreto aparente, madeira e pedra definem uma linguagem contemporânea e atemporal, reforçada pela vegetação tropical.']),
+  dict(slug='laguna', nome='Residência L+G', tipo='residencial', tipo_label='Residencial', escopo='Projeto completo', related='edificio-jl', local='Laguna, SC', area='420 m²', ano='2024', h2='Integração, privacidade e luz natural.', narr=['A residência organiza os ambientes sociais no térreo e preserva a privacidade da área íntima no pavimento superior, favorecendo uma rotina fluida e funcional.', 'Volumes horizontais, madeira, pedra e grandes aberturas aproximam os ambientes internos da área externa e valorizam a iluminação natural.']),
+  dict(slug='edificio-jl', nome='Edifício JL', tipo='residencial', tipo_label='Residencial', escopo='Projeto completo', related='kitnet-natal', local='Forquilhinha, SC', area='1.103,37 m²', ano='2023', h2='Verticalidade marcada por ritmo, sombra e vegetação.', narr=['O edifício organiza seus pavimentos de forma a valorizar a fachada urbana, criando uma presença marcante na rua e espaços comerciais bem iluminados.', 'Brises, jardineiras e grandes planos envidraçados controlam a incidência solar, conferem profundidade à fachada e reforçam a identidade contemporânea do conjunto.']),
+  dict(slug='kitnet-natal', nome='Kitnet Natal', tipo='interiores', tipo_label='Interiores', capa='kitnet-natal-06.jpg', escopo='Projeto de interiores', related='varanda', local='Criciúma, SC', area='35,56 m²', ano='2022', h2='Cada centímetro pensado para ampliar as possibilidades de uso.', narr=['O layout compacto reúne estar, trabalho e descanso com soluções multifuncionais e aproveitamento vertical.', 'A marcenaria multifuncional, o mezanino metálico e a iluminação pontual transformam um espaço compacto em um ambiente versátil e acolhedor.']),
+  dict(slug='varanda', nome='Residencial Varanda', tipo='interiores', tipo_label='Interiores', escopo='Interiores + marcenaria', related='ar', local='Florianópolis, SC', area='224 m²', ano='2025', h2='Interiores desenhados sob medida, do piso à marcenaria.', narr=['A integração entre estar, jantar e varanda orienta o projeto, criando continuidade visual e espaços amplos para o convívio.', 'A continuidade dos revestimentos, a marcenaria sob medida e a iluminação indireta reforçam a sensação de amplitude e valorizam a vista para o exterior.']),
+  dict(slug='ezos', nome='Grupo Ezos', tipo='comercial', tipo_label='Comercial', escopo='Arquitetura corporativa', related='saint-bier', local='Criciúma, SC', area='88,23 m²', ano='2023', h2='Identidade corporativa traduzida em espaço.', narr=['A recepção, as áreas de trabalho e os espaços de reunião foram organizados para favorecer produtividade, atendimento e conforto no dia a dia da equipe.', 'Materiais naturais, iluminação linear e a identidade visual da empresa aparecem de forma integrada em todo o ambiente.']),
+  dict(slug='saint-bier', nome='Saint Bier', tipo='comercial', tipo_label='Comercial', escopo='Arquitetura comercial', related='tigre', local='Forquilhinha, SC', area='66,55 m²', ano='2022', h2='Arquitetura que convida a permanecer.', narr=['O projeto foi pensado para estimular encontros, tornando a circulação intuitiva e criando diferentes experiências entre o bar, o salão e os espaços de convivência.', 'Madeira, tijolos aparentes, vegetação e iluminação quente criam uma atmosfera acolhedora que reforça a identidade da marca.']),
+  dict(slug='tigre', nome='Tigre Sports Bar', tipo='comercial', tipo_label='Comercial', capa='tigre-02.jpg', escopo='Arquitetura comercial', related='ciee', local='Estádio, Criciúma, SC', area='a confirmar', ano='2022', h2='Arquitetura que transforma torcida em experiência.', narr=['O projeto organiza bar, mesas, área de jogos e grandes telas para criar uma experiência dinâmica, onde cada lugar acompanha a emoção da partida.', 'Madeira, iluminação quente e os elementos visuais inspirados no Criciúma E.C. reforçam a identidade do espaço, criando um ambiente acolhedor, vibrante e feito para reunir pessoas.']),
+  dict(slug='ciee', nome='CIEE', tipo='comercial', tipo_label='Comercial', escopo='Arquitetura corporativa', related='ezos', local='Criciúma, SC', area='1.172,52 m²', ano='2026', h2='Uma sede preparada para receber pessoas.', narr=['Projetado para o CIEE Santa Catarina, este edifício reúne arquitetura e interiores em uma proposta que valoriza acolhimento, organização e eficiência.', 'Cada ambiente foi pensado para facilitar o dia a dia da instituição, oferecer conforto aos usuários e fortalecer sua presença na cidade por meio de uma arquitetura contemporânea e atemporal.']),
 ]
 for _p in PROJETOS:
     _p["imgs"] = _imgs(_p["slug"])
@@ -491,7 +491,7 @@ home_body = f"""
     <div class="wrap">
       <p class="eyebrow">Rosa Locks Arquitetura · Criciúma &amp; Litoral de SC</p>
       <h1>Cada projeto nasce do <em>terreno</em>, não do catálogo.</h1>
-      <p class="lede">Arquitetura residencial e de interiores assinada pela arquiteta Isadora Rosa Luiz, do primeiro esboço ao projeto executivo.</p>
+      <p class="lede">Projetamos residências e interiores para quem acredita que uma casa deve ser tão única quanto as pessoas que vivem nela.</p>
       <div class="hero-actions">
         <a class="btn-whats" href="{WA}" target="_blank" rel="noopener">Iniciar uma conversa</a>
         <span class="hint">resposta em minutos, direto no WhatsApp</span>
@@ -505,12 +505,14 @@ home_body = f"""
   <div class="wrap">
     <div>
       <p class="eyebrow">O Estúdio</p>
-      <h2>Projeto pensado do zero, executado sem imprevistos.</h2>
+      <h2>Projeto pensado do zero. Construído com confiança.</h2>
       <div class="intro-body" style="margin-top:22px;">
-        <p>A Rosa Locks projeta casas e interiores em Criciúma e no litoral de Santa Catarina. Cada projeto é modelado em BIM desde o primeiro esboço, o que compatibiliza estrutura, elétrica e hidráulica antes da obra começar, e garante que o que foi desenhado seja exatamente o que se constrói.</p>
-        <p>Não trabalhamos com plantas padronizadas. Cada terreno, orientação solar e forma de morar da família definem um projeto que não se repete em nenhum outro endereço.</p>
+        <p>Cada família vive de uma forma. Por isso, acreditamos que nenhuma casa deve nascer de uma planta pronta.</p>
+        <p>Antes de desenhar espaços, entendemos pessoas. Conhecemos sua rotina, seus desejos e a forma como você quer viver para criar uma arquitetura única, feita para durar.</p>
+        <p>Cada decisão é tomada com cuidado para que a obra aconteça com clareza, organização e tranquilidade.</p>
+        <p>Não repetimos projetos. Cada terreno, cada família e cada história dão origem a uma arquitetura verdadeiramente autoral.</p>
       </div>
-      <div class="intro-signature">Arquiteta Isadora Rosa<span>Diretora de Projetos · acompanha cada projeto de perto</span></div>
+      <div class="intro-signature">Arquiteta Isadora Rosa Luiz<span>Direção criativa e acompanhamento pessoal em todas as etapas do projeto</span></div>
     </div>
     <div class="intro-photo">
       <img src="assets/img/isadora-perfil.jpg" alt="Arquiteta Isadora Rosa, Diretora de Projetos da Rosa Locks" loading="lazy">
@@ -522,7 +524,7 @@ home_body = f"""
   <div class="wrap">
     <div class="portfolio-head">
       <div><p class="eyebrow">Projetos selecionados</p><h2>Um recorte do que já saiu do papel.</h2></div>
-      <p>Cada obra responde a um terreno, uma família e um jeito de morar específicos.</p>
+      <p>Mais do que projetos concluídos, estes são espaços criados para melhorar a forma como cada cliente vive.</p>
     </div>
     <div class="grid2">
       {home_cards}
@@ -552,7 +554,7 @@ projetos_body = f"""
   <div class="wrap">
     <p class="eyebrow">Portfólio</p>
     <h1>Projetos</h1>
-    <p>Cada projeto responde a um terreno, uma família e um jeito de morar específicos. Nenhum se repete.</p>
+    <p>Cada projeto nasce de uma história diferente. Nenhum poderia existir em outro lugar.</p>
     <div class="filters">
       <button class="filter-btn active" data-filter="todos">Todos</button>
       <button class="filter-btn" data-filter="residencial">Residencial</button>
@@ -644,7 +646,7 @@ estudio_body = f"""
   <div class="wrap">
     <p class="eyebrow">Quem assina</p>
     <h1>O Estúdio</h1>
-    <p>Um escritório de arquitetura e engenharia focado em residências e projetos comerciais de alto padrão em Criciúma e no litoral catarinense. Dois profissionais, uma assinatura: projeto autoral e responsabilidade técnica na mesma casa.</p>
+    <p>Dois profissionais, uma assinatura: criação autoral e responsabilidade técnica integradas do primeiro estudo à entrega do projeto.</p>
   </div>
 </section>
 
@@ -654,14 +656,14 @@ estudio_body = f"""
       <img src="assets/img/isadora.jpg" alt="Arquiteta Isadora Rosa, Diretora de Projetos da Rosa Locks" loading="lazy">
     </div>
     <div class="partner-bio reveal">
-      <p class="eyebrow" style="margin-bottom:16px;">Arquiteta Isadora Rosa · Diretora de Projetos</p>
+      <p class="eyebrow" style="margin-bottom:16px;">Arquiteta Isadora Rosa · Diretora de Projetos · CAU/SC A169029-9</p>
       <h2>A criação nasce, e permanece, dentro do estúdio.</h2>
       <div class="partner-text" style="margin-top:22px;">
-        <p>Arquiteta e urbanista formada pela UNESC, com registro CAU/SC A169029-9. Começou pelo design de interiores, em 2013, e atua no mercado desde 2014. Em 2021 abriu o próprio escritório de arquitetura.</p>
-        <p>Projeta de dentro para fora: parte de como se vive em cada ambiente para então chegar à forma da casa, e não o contrário.</p>
-        <p>Sua arquitetura é contemporânea e busca conforto acima de efeito. Luz natural bem aproveitada, materiais duráveis e um terreno que dita o partido, em vez de um projeto pronto adaptado ao lote. O resultado é uma casa em que se quer estar, todos os dias.</p>
-        <p>À frente da criação de cada projeto, Isadora conduz o desenho do primeiro esboço ao executivo.</p>
-        <p class="pubs">Publicações · Revista Tribuna de Interiores, 2022 e 2023</p>
+        <p>Arquiteta e urbanista formada pela UNESC, com registro CAU/SC A169029-9. Atua no mercado desde 2014 e, em 2021, fundou a Rosa Locks Arquitetura.</p>
+        <p>Seu processo de criação parte das pessoas, do terreno e da forma de viver, transformando essas informações em projetos autorais, contemporâneos e atemporais.</p>
+        <p>Cada projeto é desenvolvido do primeiro esboço ao executivo, buscando conforto, funcionalidade e soluções que valorizam luz natural, materiais duráveis e uma arquitetura pensada para durar.</p>
+        <p>À frente da direção criativa do estúdio, Isadora conduz cada projeto do conceito à definição de acabamentos, acompanhando todas as decisões que dão identidade e personalidade a cada obra.</p>
+        <p class="pubs">Publicações · Revista Tribuna de Interiores · 2022 e 2023</p>
       </div>
     </div>
   </div>
@@ -670,13 +672,13 @@ estudio_body = f"""
 <div class="wrap">
   <div class="partner-feature reverse reveal">
     <div class="partner-bio">
-      <p class="eyebrow" style="margin-bottom:16px;">Engenheiro Civil José Locks · Direção Técnica</p>
-      <h2>A engenharia que faz o desenho virar obra.</h2>
+      <p class="eyebrow" style="margin-bottom:16px;">Engenheiro Civil José Locks · Direção Técnica · CREA-SC 168536-8</p>
+      <h2>A engenharia que sustenta cada projeto.</h2>
       <div class="partner-text" style="margin-top:22px;">
-        <p>Engenheiro civil formado pela UNESC em 2018, com registro CREA-SC 168536-8.</p>
-        <p>Sua função começa antes do primeiro traço: entender o que o terreno permite construir. Zoneamento, recuos, índices e restrições são verificados na largada, para que o projeto nasça viável e não precise ser refeito depois por uma exigência que apareceu tarde.</p>
-        <p>Durante o desenvolvimento, cuida da compatibilização entre arquitetura, estrutura e instalações no modelo BIM, e conduz a documentação e a aprovação do projeto junto aos órgãos competentes.</p>
-        <p>Responsável pela viabilidade, pela compatibilização técnica e pela gestão que faz o projeto sair do papel sem surpresas: o desenho da Isadora encontra, aqui, a engenharia que o sustenta.</p>
+        <p>Engenheiro civil formado pela UNESC, com registro CREA-SC 168536-8.</p>
+        <p>Sua atuação começa antes do primeiro desenho, avaliando a viabilidade técnica do terreno, os parâmetros urbanísticos e as exigências legais que orientam o desenvolvimento do projeto.</p>
+        <p>Ao longo de todo o processo, coordena a compatibilização entre arquitetura, estrutura e instalações no modelo BIM, além de conduzir a documentação técnica e as aprovações junto aos órgãos competentes.</p>
+        <p>Seu papel é garantir que cada decisão arquitetônica seja executável, reduzindo imprevistos na obra e assegurando que o projeto seja construído exatamente como foi concebido.</p>
       </div>
     </div>
     <div class="partner-portrait">
@@ -692,7 +694,7 @@ estudio_body = f"""
     </div>
     <div>
       <p class="eyebrow">Método</p>
-      <h2>Do lugar ao desenho, e do desenho à obra.</h2>
+      <h2>Do terreno ao projeto. Do projeto à obra.</h2>
       <div class="intro-body" style="margin-top:22px;">
         <p>Todo projeto começa no terreno: orientação solar, ventos, topografia e o jeito da família viver. A partir daí, o desenho é modelado em BIM, compatibilizando arquitetura, estrutura e instalações antes de qualquer tijolo.</p>
         <p>O resultado é uma obra mais previsível, com menos surpresas no canteiro e uma casa que corresponde exatamente ao que foi projetado.</p>
@@ -703,7 +705,7 @@ estudio_body = f"""
 <section class="closing has-bg">
   <img src="assets/img/ar-01.jpg" alt="Projeto residencial Rosa Locks" loading="lazy">
   <div class="wrap">
-    <h2>Quer conversar sobre <em>o seu projeto</em>?</h2>
+    <h2>Pronto para começar <em>o seu projeto</em>?</h2>
     <a class="btn-whats" href="{WA}" target="_blank" rel="noopener">Falar no WhatsApp</a>
   </div>
 </section>
@@ -717,16 +719,16 @@ SERVICOS = [
    "Projetos autorais pensados no terreno, na orientação solar e no jeito da família viver.",
    '<path d="M4 14 L17 4 L30 14"/><path d="M7 12.5 V29 H27 V12.5"/><path d="M14 29 V20 H20 V29"/>'),
   ("Arquitetura comercial",
-   "Soluções que fortalecem marcas e negócios, do escritório ao ambiente de atendimento.",
+   "Espaços que fortalecem marcas, melhoram a operação e transformam a experiência de clientes e equipes.",
    '<rect x="5" y="7" width="11" height="22"/><rect x="18" y="13" width="10" height="16"/><path d="M8 12h5M8 17h5M8 22h5M21 18h4M21 23h4"/>'),
   ("Interiores",
-   "Ambientes desenhados sob medida, com marcenaria, iluminação e especificação técnica.",
+   "Ambientes personalizados, com marcenaria, iluminação e especificações pensadas em cada detalhe.",
    '<path d="M4 25v-6a3 3 0 013-3h18a3 3 0 013 3v6"/><path d="M7 16v-4a2 2 0 012-2h12a2 2 0 012 2v4"/><path d="M4 25h24M8 25v3M24 25v3"/>'),
   ("Aprovações e regularização",
-   "Cuidamos da documentação e da adequação do imóvel junto aos órgãos competentes.",
+   "Documentação técnica conduzida pela nossa equipe, do protocolo ao imóvel regularizado.",
    '<path d="M8 4h12l6 6v22H8z"/><path d="M20 4v6h6"/><path d="M12 18h10M12 23h10M12 28h6"/>'),
   ("Projetos complementares",
-   "Estrutural, elétrico e hidráulico coordenados pela Rosa Locks, com parceiros de confiança. Um só interlocutor do início ao fim.",
+   "Estrutural, elétrico e hidrossanitário coordenados junto ao projeto arquitetônico para uma obra sem incompatibilidades.",
    '<path d="M16 4v24"/><path d="M6 28h20"/><path d="M16 8L7 28M16 8l9 20"/><circle cx="16" cy="5" r="2"/>'),
 
 ]
@@ -760,6 +762,7 @@ servicos_body = f"""
   <div class="wrap">
     <p class="eyebrow">Como funciona</p>
     <h2>Um caminho claro, do primeiro encontro ao projeto pronto.</h2>
+    <p style="margin-top:16px; max-width:56ch; font-size:15px; line-height:1.75; color:#c9c3b8;">Todos os projetos são desenvolvidos em BIM, compatibilizados com engenharia e apresentados de forma imersiva antes da obra começar.</p>
     <div class="proc-steps">
       <div class="proc-step">
         <span class="n">01</span>
@@ -779,14 +782,14 @@ servicos_body = f"""
         <span class="n">03</span>
         <div>
           <h3>Projeto legal</h3>
-          <p>Documentação e aprovação junto aos órgãos competentes, conduzidas pela engenharia da casa. Vocês não precisam lidar com a prefeitura.</p>
+          <p>Nossa equipe conduz toda a documentação e o relacionamento com os órgãos competentes.</p>
         </div>
       </div>
       <div class="proc-step">
         <span class="n">04</span>
         <div>
           <h3>Executivo</h3>
-          <p>Detalhamento técnico completo, projetos complementares coordenados e definição de acabamentos. O caderno que a obra segue.</p>
+          <p>O conjunto de documentos que orienta cada etapa da execução da obra.</p>
         </div>
       </div>
     </div>
@@ -794,7 +797,7 @@ servicos_body = f"""
       <svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="24" cy="24" rx="19" ry="8"/><circle cx="24" cy="24" r="6"/><path d="M40 30c2 1.6 2.4 3 1 4.4M8 30c-2 1.6-2.4 3-1 4.4"/></svg>
       <div>
         <h3>Tour 360 antes de aprovar</h3>
-        <p>Antes do anteprojeto ser aprovado, vocês caminham pelo projeto em um tour 360 e enxergam cada ambiente em escala real. É a etapa que os clientes mais elogiam: dá para visualizar a casa antes de existir.</p>
+        <p>Uma das etapas mais valorizadas pelos clientes, porque permite viver o projeto antes da obra começar.</p>
       </div>
     </div>
   </div>
@@ -804,7 +807,7 @@ servicos_body = f"""
   <img src="assets/img/fd-02.jpg" alt="Projeto residencial Rosa Locks">
   <div class="band-text" style="max-width:30ch;">
     <h2>Tecnologia <em>BIM</em> do início ao projeto executivo.</h2>
-    <p style="margin-top:18px; font-size:15px; line-height:1.75; color:#d8d2c6;">Estrutura e instalações compatibilizadas ainda no desenho: orçamento mais preciso e menos surpresa quando a obra começa.</p>
+    <p style="margin-top:18px; font-size:15px; line-height:1.75; color:#d8d2c6;">Estrutura e instalações compatibilizadas ainda no projeto, reduzindo imprevistos, retrabalhos e custos durante a execução.</p>
   </div>
 </section>
 
@@ -856,7 +859,7 @@ contato_body = f"""
         </div>
 
         <div class="hours">
-          <div><div class="k">Atendimento</div><div class="v">Segunda a sexta<br>9h às 12h · 13h30 às 18h</div></div>
+          <div><div class="k">Atendimento</div><div class="v">Segunda a sexta-feira<br>09h às 12h · 13h30 às 18h</div></div>
           <div><div class="k">Reuniões</div><div class="v">Presenciais ou<br>por videoconferência</div></div>
           <div><div class="k">Atuação</div><div class="v">Criciúma, região<br>e litoral de SC</div></div>
         </div>

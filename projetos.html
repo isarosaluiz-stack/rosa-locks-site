@@ -29,8 +29,8 @@
     --line-dark: rgba(242,239,234,0.14); --line-paper: rgba(28,28,28,0.14);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
-  html{ scroll-behavior:smooth; overflow-x:hidden; }
-  body{ background:var(--bg); color:var(--dark-ink); font-family:'Work Sans',sans-serif; font-weight:300; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  html{ scroll-behavior:smooth; overflow-x:hidden; overflow-x:clip; }
+  body{ background:var(--bg); color:var(--dark-ink); font-family:'Work Sans',sans-serif; font-weight:300; -webkit-font-smoothing:antialiased; overflow-x:hidden; overflow-x:clip; }
   a{color:inherit; text-decoration:none;}
   img{max-width:100%; display:block;}
   .eyebrow{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--brass); }
@@ -331,7 +331,7 @@
   <div class="wrap">
     <p class="eyebrow">Portfólio</p>
     <h1>Projetos</h1>
-    <p>Cada projeto responde a um terreno, uma família e um jeito de morar específicos. Nenhum se repete.</p>
+    <p>Cada projeto nasce de uma história diferente. Nenhum poderia existir em outro lugar.</p>
     <div class="filters">
       <button class="filter-btn active" data-filter="todos">Todos</button>
       <button class="filter-btn" data-filter="residencial">Residencial</button>
@@ -355,12 +355,12 @@
       <div class="cap"><h3>Residência R+G</h3><div class="meta">Palhoça, SC · Residencial</div></div>
     </a>
 <a class="pcard" href="projeto-luxi.html" data-tipo="residencial">
-      <div class="ph"><img src="assets/img/luxi-01.jpg" alt="Residência Luxi" loading="lazy"></div>
-      <div class="cap"><h3>Residência Luxi</h3><div class="meta">Jaguaruna, SC · Residencial</div></div>
+      <div class="ph"><img src="assets/img/luxi-01.jpg" alt="Residência L+D" loading="lazy"></div>
+      <div class="cap"><h3>Residência L+D</h3><div class="meta">Jaguaruna, SC · Residencial</div></div>
     </a>
 <a class="pcard" href="projeto-laguna.html" data-tipo="residencial">
-      <div class="ph"><img src="assets/img/laguna-01.jpg" alt="Residência Laguna" loading="lazy"></div>
-      <div class="cap"><h3>Residência Laguna</h3><div class="meta">Laguna, SC · Residencial</div></div>
+      <div class="ph"><img src="assets/img/laguna-01.jpg" alt="Residência L+G" loading="lazy"></div>
+      <div class="cap"><h3>Residência L+G</h3><div class="meta">Laguna, SC · Residencial</div></div>
     </a>
 <a class="pcard" href="projeto-edificio-jl.html" data-tipo="residencial">
       <div class="ph"><img src="assets/img/edificio-jl-01.jpg" alt="Edifício JL" loading="lazy"></div>

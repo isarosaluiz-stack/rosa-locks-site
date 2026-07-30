@@ -29,8 +29,8 @@
     --line-dark: rgba(242,239,234,0.14); --line-paper: rgba(28,28,28,0.14);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
-  html{ scroll-behavior:smooth; overflow-x:hidden; }
-  body{ background:var(--bg); color:var(--dark-ink); font-family:'Work Sans',sans-serif; font-weight:300; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  html{ scroll-behavior:smooth; overflow-x:hidden; overflow-x:clip; }
+  body{ background:var(--bg); color:var(--dark-ink); font-family:'Work Sans',sans-serif; font-weight:300; -webkit-font-smoothing:antialiased; overflow-x:hidden; overflow-x:clip; }
   a{color:inherit; text-decoration:none;}
   img{max-width:100%; display:block;}
   .eyebrow{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--brass); }
@@ -343,22 +343,22 @@
 <div class="svc-card">
       <svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="7" width="11" height="22"/><rect x="18" y="13" width="10" height="16"/><path d="M8 12h5M8 17h5M8 22h5M21 18h4M21 23h4"/></svg>
       <h3>Arquitetura comercial</h3>
-      <p>Soluções que fortalecem marcas e negócios, do escritório ao ambiente de atendimento.</p>
+      <p>Espaços que fortalecem marcas, melhoram a operação e transformam a experiência de clientes e equipes.</p>
     </div>
 <div class="svc-card">
       <svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 25v-6a3 3 0 013-3h18a3 3 0 013 3v6"/><path d="M7 16v-4a2 2 0 012-2h12a2 2 0 012 2v4"/><path d="M4 25h24M8 25v3M24 25v3"/></svg>
       <h3>Interiores</h3>
-      <p>Ambientes desenhados sob medida, com marcenaria, iluminação e especificação técnica.</p>
+      <p>Ambientes personalizados, com marcenaria, iluminação e especificações pensadas em cada detalhe.</p>
     </div>
 <div class="svc-card svc-half">
       <svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M8 4h12l6 6v22H8z"/><path d="M20 4v6h6"/><path d="M12 18h10M12 23h10M12 28h6"/></svg>
       <h3>Aprovações e regularização</h3>
-      <p>Cuidamos da documentação e da adequação do imóvel junto aos órgãos competentes.</p>
+      <p>Documentação técnica conduzida pela nossa equipe, do protocolo ao imóvel regularizado.</p>
     </div>
 <div class="svc-card svc-half">
       <svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4v24"/><path d="M6 28h20"/><path d="M16 8L7 28M16 8l9 20"/><circle cx="16" cy="5" r="2"/></svg>
       <h3>Projetos complementares</h3>
-      <p>Estrutural, elétrico e hidráulico coordenados pela Rosa Locks, com parceiros de confiança. Um só interlocutor do início ao fim.</p>
+      <p>Estrutural, elétrico e hidrossanitário coordenados junto ao projeto arquitetônico para uma obra sem incompatibilidades.</p>
     </div>
     </div>
   </div>
@@ -368,6 +368,7 @@
   <div class="wrap">
     <p class="eyebrow">Como funciona</p>
     <h2>Um caminho claro, do primeiro encontro ao projeto pronto.</h2>
+    <p style="margin-top:16px; max-width:56ch; font-size:15px; line-height:1.75; color:#c9c3b8;">Todos os projetos são desenvolvidos em BIM, compatibilizados com engenharia e apresentados de forma imersiva antes da obra começar.</p>
     <div class="proc-steps">
       <div class="proc-step">
         <span class="n">01</span>
@@ -387,14 +388,14 @@
         <span class="n">03</span>
         <div>
           <h3>Projeto legal</h3>
-          <p>Documentação e aprovação junto aos órgãos competentes, conduzidas pela engenharia da casa. Vocês não precisam lidar com a prefeitura.</p>
+          <p>Nossa equipe conduz toda a documentação e o relacionamento com os órgãos competentes.</p>
         </div>
       </div>
       <div class="proc-step">
         <span class="n">04</span>
         <div>
           <h3>Executivo</h3>
-          <p>Detalhamento técnico completo, projetos complementares coordenados e definição de acabamentos. O caderno que a obra segue.</p>
+          <p>O conjunto de documentos que orienta cada etapa da execução da obra.</p>
         </div>
       </div>
     </div>
@@ -402,7 +403,7 @@
       <svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="24" cy="24" rx="19" ry="8"/><circle cx="24" cy="24" r="6"/><path d="M40 30c2 1.6 2.4 3 1 4.4M8 30c-2 1.6-2.4 3-1 4.4"/></svg>
       <div>
         <h3>Tour 360 antes de aprovar</h3>
-        <p>Antes do anteprojeto ser aprovado, vocês caminham pelo projeto em um tour 360 e enxergam cada ambiente em escala real. É a etapa que os clientes mais elogiam: dá para visualizar a casa antes de existir.</p>
+        <p>Uma das etapas mais valorizadas pelos clientes, porque permite viver o projeto antes da obra começar.</p>
       </div>
     </div>
   </div>
@@ -412,7 +413,7 @@
   <img src="assets/img/fd-02.jpg" alt="Projeto residencial Rosa Locks">
   <div class="band-text" style="max-width:30ch;">
     <h2>Tecnologia <em>BIM</em> do início ao projeto executivo.</h2>
-    <p style="margin-top:18px; font-size:15px; line-height:1.75; color:#d8d2c6;">Estrutura e instalações compatibilizadas ainda no desenho: orçamento mais preciso e menos surpresa quando a obra começa.</p>
+    <p style="margin-top:18px; font-size:15px; line-height:1.75; color:#d8d2c6;">Estrutura e instalações compatibilizadas ainda no projeto, reduzindo imprevistos, retrabalhos e custos durante a execução.</p>
   </div>
 </section>
 
