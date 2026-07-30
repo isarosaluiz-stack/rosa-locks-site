@@ -448,8 +448,8 @@ _NARR_PADRAO = [
 
 PROJETOS = [
   # ---------- RESIDENCIAL ----------
-  dict(slug="ar", nome="Residência A+R", tipo="residencial", tipo_label="Residencial",
-       local="Santa Catarina", area="[EDITAR] m²", ano="[EDITAR]", escopo="Projeto completo",
+  dict(slug="ar", nome="Residência A+R", tipo="interiores", tipo_label="Interiores", capa="ar-09.jpg",
+       local="Santa Catarina", area="[EDITAR] m²", ano="[EDITAR]", escopo="Projeto de interiores",
        h2="Contemporânea, aberta e voltada para o convívio.", narr=list(_NARR_PADRAO), related="dd"),
   dict(slug="dd", nome="Residência D+D", tipo="residencial", tipo_label="Residencial",
        local="Santa Catarina", area="[EDITAR] m²", ano="[EDITAR]", escopo="Projeto completo",
@@ -466,8 +466,8 @@ PROJETOS = [
   dict(slug="edificio-jl", nome="Edifício JL", tipo="residencial", tipo_label="Residencial",
        local="Forquilhinha, SC", area="[EDITAR] m²", ano="2023", escopo="Projeto completo",
        h2="[EDITAR] Uma frase que resuma o partido.", narr=list(_NARR_PADRAO), related="kitnet-natal"),
-  dict(slug="kitnet-natal", nome="Kitnet Natal", tipo="residencial", tipo_label="Residencial",
-       local="[EDITAR]", area="[EDITAR] m²", ano="[EDITAR]", escopo="Projeto completo",
+  dict(slug="kitnet-natal", nome="Kitnet Natal", tipo="interiores", tipo_label="Interiores", capa="kitnet-natal-06.jpg",
+       local="[EDITAR]", area="[EDITAR] m²", ano="[EDITAR]", escopo="Projeto de interiores",
        h2="[EDITAR] Uma frase que resuma o partido.", narr=list(_NARR_PADRAO), related="varanda"),
   # ---------- INTERIORES ----------
   dict(slug="varanda", nome="Residencial Varanda", tipo="interiores", tipo_label="Interiores",
@@ -480,7 +480,7 @@ PROJETOS = [
   dict(slug="saint-bier", nome="Saint Bier", tipo="comercial", tipo_label="Comercial",
        local="[EDITAR]", area="[EDITAR] m²", ano="[EDITAR]", escopo="Arquitetura comercial",
        h2="[EDITAR] Uma frase que resuma o partido.", narr=list(_NARR_PADRAO), related="tigre"),
-  dict(slug="tigre", nome="Tigre Sports Bar", tipo="comercial", tipo_label="Comercial",
+  dict(slug="tigre", nome="Tigre Sports Bar", tipo="comercial", tipo_label="Comercial", capa="tigre-02.jpg",
        local="[EDITAR]", area="[EDITAR] m²", ano="[EDITAR]", escopo="Arquitetura comercial",
        h2="[EDITAR] Uma frase que resuma o partido.", narr=list(_NARR_PADRAO), related="ciee"),
   dict(slug="ciee", nome="CIEE", tipo="comercial", tipo_label="Comercial",
@@ -490,6 +490,13 @@ PROJETOS = [
 for _p in PROJETOS:
     _p["imgs"] = _imgs(_p["slug"])
     _p["plantas"] = _plantas(_p["slug"])
+    _capa = _p.get("capa")
+    if _capa:
+        if _capa in _p["imgs"]:
+            _p["imgs"].remove(_capa)
+            _p["imgs"].insert(0, _capa)
+        else:
+            print(f"AVISO: capa '{_capa}' nao existe em assets/img para o projeto '{_p['slug']}'. Fotos encontradas: {_p['imgs']}")
 
 BY = {p["slug"]: p for p in PROJETOS}
 
