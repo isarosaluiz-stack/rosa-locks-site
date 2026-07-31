@@ -6,7 +6,7 @@ OUT = "."
 os.makedirs(OUT, exist_ok=True)
 
 # ---- Configurações que o José troca depois ----
-WA = "https://wa.me/5548988761429?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20falar%20sobre%20um%20projeto."  # TROCAR pelo número da Vanessa
+WA = "https://wa.me/5548988761429?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20falar%20sobre%20um%20projeto."
 INSTA = "https://www.instagram.com/rosalocks.arquitetura/"
 
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
@@ -394,6 +394,23 @@ SCROLL_JS = """<script>
 
 SITE = "https://rosalocks.com.br"
 
+PIXEL = """<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '425335903506425');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=425335903506425&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->"""
+
 def page(title, body, current, static=False, extra_js="", desc=None, og_img="hero.jpg", url=""):
     desc = desc or "Rosa Locks Arquitetura e Engenharia. Projetos residenciais e de interiores de alto padrao em Criciuma e no litoral de Santa Catarina."
     return f"""<!DOCTYPE html>
@@ -401,6 +418,7 @@ def page(title, body, current, static=False, extra_js="", desc=None, og_img="her
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{PIXEL}
 <title>{title}</title>
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="apple-touch-icon" href="assets/img/favicon.png">
