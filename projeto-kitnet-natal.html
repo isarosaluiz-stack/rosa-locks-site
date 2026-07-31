@@ -233,8 +233,14 @@ src="https://www.facebook.com/tr?id=425335903506425&ev=PageView&noscript=1"/></n
   .specs{ display:grid; grid-template-columns:1fr 1fr; gap:18px 24px; }
   .spec-item .k{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--taupe); margin-bottom:4px; }
   .spec-item .v{ font-size:15px; color:var(--dark-ink); }
-  .gallery-hero{ margin-top:46px; height:66vh; min-height:400px; overflow:hidden; }
+  .gallery-hero{ margin-top:46px; height:66vh; min-height:400px; overflow:hidden; position:relative; }
   .gallery-hero img{ width:100%; height:100%; object-fit:cover; }
+  .gallery-hero::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:32%; background:linear-gradient(to top, rgba(15,14,10,0.5) 0%, rgba(15,14,10,0) 100%); z-index:1; pointer-events:none; }
+  .hero-sign{ position:absolute; z-index:2; left:0; right:0; bottom:20px; display:flex; align-items:center; justify-content:center; gap:13px; pointer-events:none; }
+  .hero-sign .mark{ font-family:'Fraunces',serif; font-size:13px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(242,239,234,0.9); }
+  .hero-sign .mark span{ color:var(--brass-soft); }
+  .hero-sign .sep{ width:1px; height:12px; background:rgba(242,239,234,0.32); }
+  .hero-sign .at{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.06em; color:rgba(242,239,234,0.68); }
   .thumbs{ display:grid; gap:2px; margin-top:2px; }
   .thumbs{ grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); }
   .thumb{ aspect-ratio:4/3; overflow:hidden; cursor:pointer; position:relative; }
@@ -286,6 +292,10 @@ src="https://www.facebook.com/tr?id=425335903506425&ev=PageView&noscript=1"/></n
     .hero-actions{ margin-top:26px; gap:14px; }
     .hero-actions .hint{ font-size:10px; }
     .hero-media::after{ background:linear-gradient(to top, rgba(15,14,10,0.94) 0%, rgba(15,14,10,0.62) 45%, rgba(15,14,10,0.34) 100%); }
+    .hero-sign{ bottom:14px; gap:9px; }
+    .hero-sign .mark{ font-size:11px; letter-spacing:0.13em; }
+    .hero-sign .at{ font-size:9px; }
+    .hero-sign .sep{ height:10px; }
     .logo-img{ height:36px; }
     header.solid .logo-img{ height:30px; }
     .eyebrow{ letter-spacing:0.13em; }
@@ -355,7 +365,7 @@ src="https://www.facebook.com/tr?id=425335903506425&ev=PageView&noscript=1"/></n
     </div>
   </div>
 </div>
-<div class="gallery-hero"><img id="mainimg" src="assets/img/kitnet-natal-06.jpg" alt="Kitnet Natal, imagem principal"></div>
+<div class="gallery-hero"><img id="mainimg" src="assets/img/kitnet-natal-06.jpg" alt="Kitnet Natal, imagem principal"><div class="hero-sign"><span class="mark">Rosa <span>Locks</span></span><span class="sep"></span><span class="at">@rosalocks.arquitetura</span></div></div>
 <div class="thumbs n3"><div class="thumb"><img src="assets/img/kitnet-natal-01.jpg" alt="Kitnet Natal, imagem 2" loading="lazy" data-full="assets/img/kitnet-natal-01.jpg"></div><div class="thumb"><img src="assets/img/kitnet-natal-02.jpg" alt="Kitnet Natal, imagem 3" loading="lazy" data-full="assets/img/kitnet-natal-02.jpg"></div><div class="thumb"><img src="assets/img/kitnet-natal-03.jpg" alt="Kitnet Natal, imagem 4" loading="lazy" data-full="assets/img/kitnet-natal-03.jpg"></div><div class="thumb"><img src="assets/img/kitnet-natal-04.jpg" alt="Kitnet Natal, imagem 5" loading="lazy" data-full="assets/img/kitnet-natal-04.jpg"></div><div class="thumb"><img src="assets/img/kitnet-natal-05.jpg" alt="Kitnet Natal, imagem 6" loading="lazy" data-full="assets/img/kitnet-natal-05.jpg"></div><div class="thumb"><img src="assets/img/kitnet-natal-07.jpg" alt="Kitnet Natal, imagem 7" loading="lazy" data-full="assets/img/kitnet-natal-07.jpg"></div><div class="thumb"><img src="assets/img/kitnet-natal-08.jpg" alt="Kitnet Natal, imagem 8" loading="lazy" data-full="assets/img/kitnet-natal-08.jpg"></div><div class="thumb"><img src="assets/img/kitnet-natal-09.jpg" alt="Kitnet Natal, imagem 9" loading="lazy" data-full="assets/img/kitnet-natal-09.jpg"></div><div class="thumb"><img src="assets/img/kitnet-natal-10.jpg" alt="Kitnet Natal, imagem 10" loading="lazy" data-full="assets/img/kitnet-natal-10.jpg"></div><div class="thumb"><img src="assets/img/kitnet-natal-11.jpg" alt="Kitnet Natal, imagem 11" loading="lazy" data-full="assets/img/kitnet-natal-11.jpg"></div><div class="thumb"><img src="assets/img/kitnet-natal-12.jpg" alt="Kitnet Natal, imagem 12" loading="lazy" data-full="assets/img/kitnet-natal-12.jpg"></div></div>
 <section class="narrative">
   <div class="wrap">
