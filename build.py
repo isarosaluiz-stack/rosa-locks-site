@@ -421,6 +421,47 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=425335903506425&ev=PageView&noscript=1"/></noscript>
 <!-- End Meta Pixel Code -->"""
 
+SCHEMA = """<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["ProfessionalService", "LocalBusiness"],
+  "@id": "https://rosalocks.com.br/#organizacao",
+  "name": "Rosa Locks Arquitetura e Engenharia",
+  "alternateName": "Rosa Locks Arquitetura",
+  "description": "Escritorio de arquitetura e interiores em Criciuma e no litoral de Santa Catarina. Projetos residenciais autorais, interiores sob medida e regularizacao de imoveis, com projeto em BIM desde o primeiro esboco.",
+  "url": "https://rosalocks.com.br",
+  "logo": "https://rosalocks.com.br/assets/img/hero.jpg",
+  "image": "https://rosalocks.com.br/assets/img/hero.jpg",
+  "telephone": "+5548988761429",
+  "founder": { "@type": "Person", "name": "Isadora Rosa Luiz" },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua Sao Jose 392, Sala 68, Edificio Mario da Cunha Carneiro, Centro",
+    "addressLocality": "Criciuma",
+    "addressRegion": "SC",
+    "postalCode": "88801-520",
+    "addressCountry": "BR"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Criciuma" },
+    { "@type": "City", "name": "Balneario Camboriu" },
+    { "@type": "City", "name": "Itapema" },
+    { "@type": "AdministrativeArea", "name": "Litoral de Santa Catarina" }
+  ],
+  "knowsAbout": ["Arquitetura residencial", "Design de interiores", "Regularizacao de imoveis", "Projeto autoral", "BIM"],
+  "sameAs": ["https://www.instagram.com/rosalocks.arquitetura"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servicos",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Projeto residencial autoral" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Projeto de interiores sob medida" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Regularizacao de imoveis" } }
+    ]
+  }
+}
+</script>"""
+
 def page(title, body, current, static=False, extra_js="", desc=None, og_img="hero.jpg", url=""):
     desc = desc or "Rosa Locks Arquitetura e Engenharia. Projetos residenciais e de interiores de alto padrao em Criciuma e no litoral de Santa Catarina."
     return f"""<!DOCTYPE html>
@@ -429,6 +470,7 @@ def page(title, body, current, static=False, extra_js="", desc=None, og_img="her
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {PIXEL}
+{SCHEMA}
 <title>{title}</title>
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="apple-touch-icon" href="assets/img/favicon.png">
